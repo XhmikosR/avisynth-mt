@@ -14,7 +14,7 @@ VIProductVersion "${VERSION}.${ISSUE}"
 VIAddVersionKey "ProductName"      "Avisynth 2.5"
 VIAddVersionKey "Comments"         "Homepage: http://www.avisynth.org"
 VIAddVersionKey "CompanyName"      "The Public"
-VIAddVersionKey "LegalCopyright"   "© 2000-2008 Ben Rudiak-Gould and others"
+VIAddVersionKey "LegalCopyright"   "© 2000-2009 Ben Rudiak-Gould and others"
 VIAddVersionKey "FileDescription"  "Avisynth installer"
 VIAddVersionKey "FileVersion"      "${VERSION}.${ISSUE}"
 VIAddVersionKey "ProductVersion"   "${VERSION}"
@@ -206,12 +206,12 @@ Section $(SystemInstall_Text) SystemInstall
 
   ClearErrors
   SetOutPath $SYSDIR
-  File "..\src\release\AviSynth.dll"
+  File "..\src\Release\AviSynth.dll"
   File "bin\devil.dll"
 
-IfFileExists "$SYSDIR\msvcp60.dll" msvc60_exists
-  File "bin\msvcp60.dll"
-msvc60_exists:
+;IfFileExists "$SYSDIR\msvcp60.dll" msvc60_exists
+;  File "bin\msvcp60.dll"
+;msvc60_exists:
 
 IfErrors 0 dll_ok
   MessageBox MB_OK $(InUseMsg_Text)
@@ -246,8 +246,12 @@ plug_ok:
   WriteRegStr HKLM "SOFTWARE\AviSynth" "" "$INSTDIR"
   WriteRegStr HKLM "SOFTWARE\AviSynth" "plugindir2_5" "$0"
 
-  WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\AviSynth" "DisplayName" "AviSynth 2.5"
+  WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\AviSynth" "DisplayName" "AviSynth ${VERSION}"
   WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\AviSynth" "UninstallString" '"$INSTDIR\Uninstall.exe"'
+  WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\AviSynth" "Publisher" "The Public"
+  WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\AviSynth" "DisplayIcon" "$SYSDIR\AviSynth.dll,0"
+  WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\AviSynth" "DisplayVersion" "${VERSION}.${ISSUE}"
+  WriteRegStr HKLM "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\AviSynth" "URLInfoAbout" "http://avisynth.org/"
 
   WriteRegStr HKLM "SOFTWARE\Classes\.avs" "" "avsfile"
 
@@ -316,9 +320,9 @@ Section /o  $(StandAlone_Text) StandAlone
 
   ClearErrors
   SetOutPath $INSTDIR
-  File "..\src\release\AviSynth.dll"
+  File "..\src\Release\AviSynth.dll"
   File "bin\devil.dll"
-  File "bin\msvcp60.dll"
+;  File "bin\msvcp60.dll"
 
   File "Avisynth_Template.reg"
 
@@ -387,6 +391,8 @@ Section /o  $(Czech_Text) Czech
   File "..\..\Docs\czech\advancedtopics\*.htm"
   SetOutPath $INSTDIR\Docs\Czech\corefilters
   File "..\..\Docs\czech\corefilters\*.htm"
+  SetOutPath $INSTDIR\Docs\Czech\externalfilters
+  File "..\..\Docs\czech\externalfilters\*.htm"
   SetOutPath $INSTDIR\Docs\Czech\pictures\advancedtopics
   File "..\..\Docs\czech\pictures\advancedtopics\*.*"
   SetOutPath $INSTDIR\Docs\Czech\pictures\corefilters
@@ -628,7 +634,7 @@ Section /o  $(ExtraFiles3_Text) ExtraFiles3
 !echo " -- Supressed"
 !verbose push
 !verbose 2
-  File "..\filtersdk\*.*"
+  File "filtersdk\*.*"
 !verbose pop
   SetOutPath $INSTDIR\FilterSDK\include
   File "..\src\core\avisynth.h"
@@ -642,8 +648,8 @@ SectionEnd
 Section /o  $(ExtraFiles1_Text) ExtraFiles1
   SectionIn 4
   SetOutPath $INSTDIR\Extras
-  File "..\src\release\AviSynth.lib"
-  File "..\src\release\AviSynth.exp"
+  File "..\src\Release\AviSynth.lib"
+  File "..\src\Release\AviSynth.exp"
 SectionEnd
 
 Section /o  $(ExtraFiles2_Text) ExtraFiles2
@@ -799,10 +805,14 @@ Ignore:
   Delete "$INSTDIR\Docs\English\*.*"
   RMDir  "$INSTDIR\Docs\English"
 
+  Delete "$INSTDIR\Docs\Czechh\advancedtopics\*.*"
+  RMDir  "$INSTDIR\Docs\Czech\advancedtopics"
   Delete "$INSTDIR\Docs\Czech\corefilters\*.*"
   RMDir  "$INSTDIR\Docs\Czech\corefilters"
   Delete "$INSTDIR\Docs\Czech\externalfilters\*.*"
   RMDir  "$INSTDIR\Docs\Czech\externalfilters"
+  Delete "$INSTDIR\Docs\Czech\pictures\advancedtopics\*.*"
+  RMDir  "$INSTDIR\Docs\Czech\pictures\advancedtopics"
   Delete "$INSTDIR\Docs\Czech\pictures\corefilters\*.*"
   RMDir  "$INSTDIR\Docs\Czech\pictures\corefilters"
   RMDir  "$INSTDIR\Docs\Czech\pictures"
