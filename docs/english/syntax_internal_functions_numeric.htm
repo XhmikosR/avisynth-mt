@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<!--
+Not Automatically generated, changed!:
+$Id: syntax_internal_functions_numeric.htm,v 1.3 2011/01/16 12:24:09 wilbertd Exp $ 
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Syntax - Numeric functions</title>
+<link rel="stylesheet" type="text/css" href="../avisynth.css">
+</head>
+<body>
+<h2><span class="mw-headline">AviSynth Syntax - Numeric functions</span></h2>
+<p>Numeric functions provide common mathematical operations on numeric
+variables.</p>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Max</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.58 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Max(float,
+    float [, ...])</span></li>
+</ul>
+<dl>
+  <dd>Returns the maximum value of a set of numbers.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Max (1, 2) = 2
+Max (5, 3.0, 2) = 5.0</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Min</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.58 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Min(float,
+    float [, ...])</span></li>
+</ul>
+<dl>
+  <dd>Returns the minimum value of a set of numbers.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Max (1, 2) = 1
+Max (5, 3.0, 2) = 2.0</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">MulDiv</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.56 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">MulDiv(int,
+    int, int)</span></li>
+</ul>
+<dl>
+  <dd>Multiplies two ints (m, n) and divides the product by a third (d) in a
+    single operation, with 64 bit intermediate result. The actual equation used
+    is <tt>(m * n + d / 2) / d </tt>.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>MulDiv (1, 1, 2) = 1
+MulDiv (2, 3, 2) = 3</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Floor</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Floor(float)</span></li>
+</ul>
+<dl>
+  <dd>Converts from float to int (round down on any fractional amount).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Floor(1.2) = 1
+Floor(1.6) = 1
+Floor(-1.2) = -2
+Floor(-1.6) = -2</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Ceil</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Ceil(float)</span></li>
+</ul>
+<dl>
+  <dd>Converts from float to int (round up on any fractional amount).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Ceil(1.2) = 2.0
+Ceil(1.6) = 2.0
+Ceil(-1.2) = -1
+Ceil(-1.6) = -1</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Round</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Round(float)</span></li>
+</ul>
+<dl>
+  <dd>Converts from float to int (round off to nearest integer).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Round(1.2) = 1
+Round(1.6) = 2
+Round(-1.2) = -1
+Round(-1.6) = -2</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Sin</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Sin(float)</span></li>
+</ul>
+<dl>
+  <dd>Returns the sine of the argument (assumes it is radians).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Sin(Pi()/4) = 0.707
+Sin(Pi()/2) = 1.0</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Cos</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Cos(float)</span></li>
+</ul>
+<dl>
+  <dd>Returns the cosine of the argument (assumes it is radians).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Cos(Pi()/4) = 0.707
+Cos(Pi()/2) = 0.0</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Pi</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Pi()</span></li>
+</ul>
+<dl>
+  <dd>Returns the value of the &quot;pi&quot; constant (the ratio of a circle's
+    perimeter to its diameter).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>d = Pi()    # d == 3.141593</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Exp</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Exp(float)</span></li>
+</ul>
+<dl>
+  <dd>Returns the natural (base-e) exponent of the argument.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Exp(1) = 2.718282
+Exp(0) = 1.0</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Log</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Log(float)</span></li>
+</ul>
+<dl>
+  <dd>Returns the natural (base-e) logarithm of the argument.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Log(1) = 0.0
+Log(10) = 2.30259
+Log(Exp(1)) = 1.0</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Pow</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Pow(float
+    base, float power)</span></li>
+</ul>
+<dl>
+  <dd>Returns &quot;base&quot; raised to the power indicated by the second
+    argument.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Pow(2, 3) = 8
+Pow(3, 2) = 9
+Pow(3.45, 1.75) = 8.7334</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Sqrt</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Sqrt(float)</span></li>
+</ul>
+<dl>
+  <dd>Returns the square root of the argument.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Sqrt(1) = 1.0
+Sqrt(2) = 1.4142</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Abs</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.07 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Abs(float
+    or int)</span></li>
+</ul>
+<dl>
+  <dd>Returns the absolute value of its argument (returns float for float,
+    integer for integer).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Abs(-3.8) = 3.8
+Abs(-4) = 4</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Sign</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.07 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Sign(float)</span></li>
+</ul>
+<dl>
+  <dd>Returns the sign of the value passed as argument (1, 0 or -1).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Sign(-3.5) = -1
+Sign(3.5) = 1
+Sign(0) = 0</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Int</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.07 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Int(float)</span></li>
+</ul>
+<dl>
+  <dd>Converts from float to int (round towards zero).</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Int(1.2) = 1
+Int(1.6) = 1
+Int(-1.2) = -1
+Int(-1.6) = -1</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Frac</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.07 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Frac(float)</span></li>
+</ul>
+<dl>
+  <dd>Returns the fractional portion of the value provided.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Frac(3.7) = 0.7
+Frac(-1.8) = -0.8</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Float</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.07 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Float(int)</span></li>
+</ul>
+<dl>
+  <dd>Converts int to float.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Float(4) = 4.0
+Float(4) / 3 = 1.333 (while 4 / 3 = 1 , due to integer division)</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Rand</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.07 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Rand([int
+    max] [, bool scale] [, bool seed])</span></li>
+</ul>
+<dl>
+  <dd>Returns a random integer value. All parameters are optional.
+    <ul>
+      <li><i>max</i> sets the maximum value+1 (default 32768) and can be set
+        negative for negative results. It operates either in scaled or modulus
+        mode (default <i>scale</i>=true only if abs(max) &gt; 32768, false
+        otherwise).</li>
+      <li>Scaled mode (<i>scale</i>=true) scales the internal random number
+        generator value to the maximum value, while modulus mode (<i>scale</i>=false)
+        uses the remainder from an integer divide of the random generator value
+        by the maximum. I found modulus mode is best for smaller maximums.</li>
+      <li>Using <i>seed=true</i> seeds the random number generator with the
+        current time. <i>seed</i> defaults to false and probably isn't
+        necessary, although it's there just in case.</li>
+    </ul>
+  </dd>
+  <dd>Typically, this function would be used with the Select function for random
+    clips.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Select(Rand(5), clip1, clip2, clip3, clip4, clip5)</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Spline</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.51 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Spline(float
+    X, x1, y1, x2, y2, .... [, bool cubic])</span></li>
+</ul>
+<dl>
+  <dd>Interpolates the Y value at point X using the control points x1/y1, ...
+    There have to be at least 2 x/y-pairs. The interpolation can be cubic (the
+    result is a spline) or linear (the result is a polygon). Default is cubic.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>Spline(5, 0, 0, 10, 10, 20, 0, false) = 5
+Spline(5, 0, 0, 10, 10, 20, 0, true) = 7</pre>
+
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">ContinuedNumerator</span>
+    <span>&nbsp;</span> | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span>
+    <span style="color: purple; font-weight: bold;">ContinuedNumerator(float,
+    int limit)</span></li>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">ContinuedNumerator</span>
+    <span>&nbsp;</span> | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span>
+    <span style="color: purple; font-weight: bold;">ContinuedNumerator(int, int,
+    int limit)</span></li>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">ContinuedDenominator</span>
+    <span>&nbsp;</span> | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span>
+    <span style="color: purple; font-weight: bold;">ContinuedDenominator(float,
+    int limit)</span></li>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">ContinuedDenominator</span>
+    <span>&nbsp;</span> | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span>
+    <span style="color: purple; font-weight: bold;">ContinuedDenominator(int,
+    int, int limit)</span></li>
+</ul>
+<dl>
+  <dd>The rational pair (ContinuedNumerator,ContinuedDenominator) returned has
+    the smallest possible denominator such that the absolute error is less than
+    1/limit. More information can be found on <a href="http://en.wikipedia.org/wiki/Continued_fraction" class="external text" title="http://en.wikipedia.org/wiki/Continued_fraction" rel="nofollow">wikipedia</a>.</dd>
+  <dd>If <i>limit</i> is not specified in the Float case the rational pair
+    returned is to the limit of the single precision floating point value. Thus
+    (float)((double)Num/(double)Den) == V.</dd>
+  <dd>In the Int case if <i>limit</i> is not specified then the original values
+    will be returned.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>ContinuedNumerator(PI(), limit=5000]) = 355
+ContinuedDenominator(PI(), limit=5000) = 113
+
+ContinuedNumerator(PI(), limit=50]) = 22
+ContinuedDenominator(PI(), limit=50) = 7
+
+ContinuedNumerator(355, 113, limit=50]) = 22
+ContinuedDenominator(355, 113, limit=50) = 7 </pre>
+&nbsp;
+
+<hr>
+<p>Back to <a href="syntax_internal_functions.htm" title="Internal functions">Internal
+functions</a>.</p>
+<p><kbd>$Date: 2011/01/16 12:24:09 $</kbd></p>
+</body>
+</html>
