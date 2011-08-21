@@ -178,10 +178,10 @@ SetCompressor /solid lzma
 
 
 NAME "AviSynth"
-BRANDINGTEXT "AviSynth ${VERSION} -- [${DATE}]"
+BRANDINGTEXT "AviSynth ${VERSION} MT -- [${DATE}]"
 OutFile "AviSynth_${VERSION}_MT.exe"
 SetOverwrite ON
-Caption "AviSynth ${VERSION}"
+Caption "AviSynth ${VERSION} MT"
 ShowInstDetails show
 CRCCheck ON
 
