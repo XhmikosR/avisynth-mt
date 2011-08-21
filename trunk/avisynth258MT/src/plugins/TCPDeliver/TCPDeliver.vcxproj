@@ -65,7 +65,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0417</Culture>
+      <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nafxcwd.lib;lzo/debug/lzo.lib;zlib/lib/zlibstat.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -95,7 +95,7 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0417</Culture>
+      <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>nafxcw.lib;lzo/release/lzo.lib;zlib/lib/zlibstat.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>

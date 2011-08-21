@@ -179,7 +179,7 @@ SetCompressor /solid lzma
 
 NAME "AviSynth"
 BRANDINGTEXT "AviSynth ${VERSION} -- [${DATE}]"
-OutFile "AviSynth_${DATE}.exe"
+OutFile "AviSynth_${VERSION}_MT.exe"
 SetOverwrite ON
 Caption "AviSynth ${VERSION}"
 ShowInstDetails show
