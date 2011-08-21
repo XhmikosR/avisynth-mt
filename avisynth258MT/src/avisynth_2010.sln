@@ -1,66 +1,54 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectShowSource", "plugins\DirectShowSource\DirectShowSource.vcproj", "{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectShowSource", "plugins\DirectShowSource\DirectShowSource.vcxproj", "{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoftWire", "..\distrib\include\SoftWire\SoftWire.vcproj", "{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoftWire", "..\distrib\include\SoftWire\SoftWire.vcxproj", "{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundTouch", "..\distrib\include\SoundTouch\SoundTouch.vcproj", "{EED45D9C-9C49-4AA5-9239-8E4D95206989}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundTouch", "..\distrib\include\SoundTouch\SoundTouch.vcxproj", "{EED45D9C-9C49-4AA5-9239-8E4D95206989}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCPDeliver", "plugins\TCPDeliver\TCPDeliver.vcproj", "{6348E5C7-9510-443E-8C10-F210AFD0FEC8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TCPDeliver", "plugins\TCPDeliver\TCPDeliver.vcxproj", "{6348E5C7-9510-443E-8C10-F210AFD0FEC8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "avisynth", "avisynth.vcproj", "{720622E7-2535-4E2C-BA79-57C6D13C7034}"
-	ProjectSection(ProjectDependencies) = postProject
-		{EED45D9C-9C49-4AA5-9239-8E4D95206989} = {EED45D9C-9C49-4AA5-9239-8E4D95206989}
-		{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE} = {59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}
-		{FB1526EC-7A90-4A2E-B93B-3A080BDDD739} = {FB1526EC-7A90-4A2E-B93B-3A080BDDD739}
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "avisynth", "avisynth.vcxproj", "{720622E7-2535-4E2C-BA79-57C6D13C7034}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pfc", "..\distrib\include\pfc\pfc.vcproj", "{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pfc", "..\distrib\include\pfc\pfc.vcxproj", "{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "baseclasses", "..\distrib\include\baseclasses\baseclasses.vcxproj", "{E8A3F6FA-AE1C-4C8E-A0B6-9C8480324EAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
 		Release|Win32 = Release|Win32
-		Relsym|Win32 = Relsym|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}.Debug|Win32.ActiveCfg = Debug|Win32
 		{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}.Debug|Win32.Build.0 = Debug|Win32
 		{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}.Release|Win32.ActiveCfg = Release|Win32
 		{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}.Release|Win32.Build.0 = Release|Win32
-		{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}.Relsym|Win32.ActiveCfg = Release|Win32
-		{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}.Relsym|Win32.Build.0 = Release|Win32
 		{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}.Debug|Win32.ActiveCfg = Debug|Win32
 		{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}.Debug|Win32.Build.0 = Debug|Win32
 		{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}.Release|Win32.ActiveCfg = Release|Win32
 		{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}.Release|Win32.Build.0 = Release|Win32
-		{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}.Relsym|Win32.ActiveCfg = Relsym|Win32
-		{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}.Relsym|Win32.Build.0 = Relsym|Win32
 		{EED45D9C-9C49-4AA5-9239-8E4D95206989}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EED45D9C-9C49-4AA5-9239-8E4D95206989}.Debug|Win32.Build.0 = Debug|Win32
 		{EED45D9C-9C49-4AA5-9239-8E4D95206989}.Release|Win32.ActiveCfg = Release|Win32
 		{EED45D9C-9C49-4AA5-9239-8E4D95206989}.Release|Win32.Build.0 = Release|Win32
-		{EED45D9C-9C49-4AA5-9239-8E4D95206989}.Relsym|Win32.ActiveCfg = Relsym|Win32
-		{EED45D9C-9C49-4AA5-9239-8E4D95206989}.Relsym|Win32.Build.0 = Relsym|Win32
 		{6348E5C7-9510-443E-8C10-F210AFD0FEC8}.Debug|Win32.ActiveCfg = Debug|Win32
 		{6348E5C7-9510-443E-8C10-F210AFD0FEC8}.Debug|Win32.Build.0 = Debug|Win32
 		{6348E5C7-9510-443E-8C10-F210AFD0FEC8}.Release|Win32.ActiveCfg = Release|Win32
 		{6348E5C7-9510-443E-8C10-F210AFD0FEC8}.Release|Win32.Build.0 = Release|Win32
-		{6348E5C7-9510-443E-8C10-F210AFD0FEC8}.Relsym|Win32.ActiveCfg = Release|Win32
-		{6348E5C7-9510-443E-8C10-F210AFD0FEC8}.Relsym|Win32.Build.0 = Release|Win32
 		{720622E7-2535-4E2C-BA79-57C6D13C7034}.Debug|Win32.ActiveCfg = Debug|Win32
 		{720622E7-2535-4E2C-BA79-57C6D13C7034}.Debug|Win32.Build.0 = Debug|Win32
 		{720622E7-2535-4E2C-BA79-57C6D13C7034}.Release|Win32.ActiveCfg = Release|Win32
 		{720622E7-2535-4E2C-BA79-57C6D13C7034}.Release|Win32.Build.0 = Release|Win32
-		{720622E7-2535-4E2C-BA79-57C6D13C7034}.Relsym|Win32.ActiveCfg = RelSym|Win32
-		{720622E7-2535-4E2C-BA79-57C6D13C7034}.Relsym|Win32.Build.0 = RelSym|Win32
 		{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}.Debug|Win32.ActiveCfg = Debug|Win32
 		{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}.Debug|Win32.Build.0 = Debug|Win32
 		{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}.Release|Win32.ActiveCfg = Release|Win32
 		{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}.Release|Win32.Build.0 = Release|Win32
-		{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}.Relsym|Win32.ActiveCfg = Relsym|Win32
-		{59B7CCA3-F23F-43F4-96BC-D20777BF3CAE}.Relsym|Win32.Build.0 = Relsym|Win32
+		{E8A3F6FA-AE1C-4C8E-A0B6-9C8480324EAA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E8A3F6FA-AE1C-4C8E-A0B6-9C8480324EAA}.Debug|Win32.Build.0 = Debug|Win32
+		{E8A3F6FA-AE1C-4C8E-A0B6-9C8480324EAA}.Release|Win32.ActiveCfg = Release|Win32
+		{E8A3F6FA-AE1C-4C8E-A0B6-9C8480324EAA}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
