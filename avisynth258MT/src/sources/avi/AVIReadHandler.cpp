@@ -1100,7 +1100,7 @@ HRESULT AVIReadStream::Read(long lStart, long lSamples, void *lpBuffer, long cbB
 			unsigned size = avie2->size & 0x7FFFFFFF;
 
 			if (psnData->cache && fStreamingActive && size < psnData->cache->getMaxRead()) {
-//OutputDebugString("[v] attempting cached read\n");
+				//OutputDebugString("[v] attempting cached read\n");
 				lActual = psnData->cache->Read(lpBuffer, avie2->pos, avie2->pos + 8, size);
 				psnData->stream_bytes += lActual;
 			} else

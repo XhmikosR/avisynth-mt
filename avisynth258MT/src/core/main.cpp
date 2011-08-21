@@ -75,7 +75,7 @@
 #define _RPT2(rptno, msg, a1, a2)             ReportMe(msg, a1, a2)            
 #define _RPT3(rptno, msg, a1, a2, a3)         ReportMe(msg, a1, a2, a3)      
 #define _RPT4(rptno, msg, a1, a2, a3, a4)     ReportMe(msg, a1, a2, a3, a4)
-#define _RPT5(rptno, msg, a1, a2, a3, a4, a5) ReportMe(msg, a1, a2, a3, a4, a5)
+//#define _RPT5(rptno, msg, a1, a2, a3, a4, a5) ReportMe(msg, a1, a2, a3, a4, a5)
 
 void ReportMe(const char * msg, ...) {
   static char buf[256] = "";
