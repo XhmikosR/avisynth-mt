@@ -480,8 +480,8 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="convert\convert_a.asm">
+    <MASM Include="convert\convert_a.asm">
       <Filter>Conversion</Filter>
-    </CustomBuild>
+    </MASM>
   </ItemGroup>
 </Project>
