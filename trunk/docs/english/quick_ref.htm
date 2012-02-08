@@ -3,7 +3,7 @@
 <head>
 <!--
 Not automatically generated, has been changed:
-$Id: quick_ref.htm,v 1.55 2011/01/16 12:24:09 wilbertd Exp $ 
+$Id: quick_ref.htm,v 1.56 2011/12/04 15:27:59 wilbertd Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="Keywords" content="Avisynth filter reference">
@@ -217,31 +217,31 @@ ConvertToRGB24 / ConvertToRGB32 / ConvertToY8 / ConvertToYUY2 /<br>
 ConvertToYV12 / ConvertToYV16 / ConvertToYV24 / ConvertToYV411</a> <em>[yv24]
 [yv16] [yv12] [yv411] [y8] [yuy2] [rgb32] [rgb24]</em>
 <ul>
-  <li><code>ConvertToBackYUY2 </code>(<var>clip, string &quot;matrix&quot;</var>)</li>
   <li><code>ConvertToRGB </code>(<var>clip, string &quot;matrix&quot;, bool
-    &quot;interlaced&quot;, string &quot;chromaplacement&quot;, string
+    &quot;interlaced&quot;, string &quot;ChromaInPlacement&quot;, string
     &quot;chromaresample&quot;</var>)</li>
   <li><code>ConvertToRGB24 </code>(<var>clip, string &quot;matrix&quot;, bool
-    &quot;interlaced&quot;, string &quot;chromaplacement&quot;, string
+    &quot;interlaced&quot;, string &quot;ChromaInPlacement&quot;, string
     &quot;chromaresample&quot;</var>)</li>
   <li><code>ConvertToRGB32 </code>(<var>clip, string &quot;matrix&quot;, bool
-    &quot;interlaced&quot;, string &quot;chromaplacement&quot;, string
+    &quot;interlaced&quot;, string &quot;ChromaInPlacement&quot;, string
     &quot;chromaresample&quot;</var>)</li>
-  <li><code>ConvertToY8 </code>(<var>clip, string &quot;matrix&quot;</var>) <em>[v 2.60]</em></li>
   <li><code>ConvertToYUY2 </code>(<var>clip, bool
-    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;chromaplacement&quot;, string
+    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;ChromaInPlacement&quot;, string
     &quot;chromaresample&quot;</var>)</li>
+  <li><code>ConvertToBackYUY2 </code>(<var>clip, string &quot;matrix&quot;</var>)</li>
+  <li><code>ConvertToY8 </code>(<var>clip, string &quot;matrix&quot;</var>) <em>[v 2.60]</em></li>
   <li><code>ConvertToYV12 </code>(<var>clip, bool
-    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;chromaplacement&quot;, string
-    &quot;chromaresample&quot;</var>) <em>[v 2.50]</em></li>
+    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;ChromaInPlacement&quot;, string
+    &quot;chromaresample&quot;, string &quot;ChromaOutPlacement&quot;</var>) <em>[v 2.50]</em></li>
   <li><code>ConvertToYV16 </code>(<var>clip, bool
-    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;chromaplacement&quot;, string
+    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;ChromaInPlacement&quot;, string
     &quot;chromaresample&quot;</var>) <em>[v 2.60]</em></li>
   <li><code>ConvertToYV24 </code>(<var>clip, bool
-    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;chromaplacement&quot;, string
+    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;ChromaInPlacement&quot;, string
     &quot;chromaresample&quot;</var>) <em>[v 2.60]</em></li>
   <li><code>ConvertToYV411 </code>(<var>clip, bool
-    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;chromaplacement&quot;, string
+    &quot;interlaced&quot;, string &quot;matrix&quot;, string &quot;ChromaInPlacement&quot;, string
     &quot;chromaresample&quot;</var>) <em>[v 2.60]</em></li>
 </ul>
 <a href="corefilters/fps.htm#ConvertFPS">ConvertFPS</a>  <em>[yv24] [yv16]
@@ -424,7 +424,8 @@ ImageSourceAnim</a> /
 [y8] [yuy2] [rgb32] [rgb24]</em>
 <ul>
   <li> <code>Levels </code>(<var>clip, int input_low, float gamma, int input_high, int 
-    output_low, int output_high, bool "coring"</var>)</li>
+    output_low, int output_high, bool &quot;coring&quot;, bool
+    &quot;dither&quot;</var>)</li>
 </ul>
 <a href="corefilters/limiter.htm">Limiter</a> <em>[yv24] [yv16] [yv12] [yv411]
 [y8] [yuy2]</em>
@@ -505,7 +506,7 @@ bit, float] </em>
   float &quot;r&quot;,  float &quot;g&quot;,  float &quot;b&quot;,  float &quot;a&quot;,
   float &quot;rb&quot;, float &quot;gb&quot;, float &quot;bb&quot;, float &quot;ab&quot;,
   float &quot;rg&quot;, float &quot;gg&quot;, float &quot;bg&quot;, float &quot;ag&quot;,
-  bool &quot;analyze&quot;</var>)</li>
+  bool &quot;analyze&quot;, bool &quot;dither&quot;</var>)</li>
 </ul>
 <a href="corefilters/reduceby2.htm">ReduceBy2 / HorizontalReduceBy2 / VerticalReduceBy2</a> <em>[yv24]
 [yv16] [yv12] [yv411] [y8] [yuy2] [rgb32] [rgb24]</em>
@@ -761,7 +762,8 @@ SoundOut</a> <em>[all] [v2.60] </em>
 <ul>
   <li> <code>Tweak </code>(<var>clip, float "hue", float "sat", float "bright",
      float "cont", bool "coring", bool "sse", float "startHue", float "endHue",
-    float "maxSat", float "minSat", float &quot;interp&quot;</var>)</li>
+    float "maxSat", float "minSat", float &quot;interp&quot;, bool
+    &quot;dither&quot;</var>)</li>
 </ul>
 <a name="V"></a><a href="corefilters/version.htm">Version</a> <em>[rgb24] </em>
 <ul>
@@ -816,6 +818,6 @@ SoundOut</a> <em>[all] [v2.60] </em>
 <a href="#V">[V]</a>
 <a href="#W">[W]</a>
  [X] [Y] [Z]
-<p><kbd>$Date: 2011/01/16 12:24:09 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:27:59 $</kbd></p>
 </body>
 </html>

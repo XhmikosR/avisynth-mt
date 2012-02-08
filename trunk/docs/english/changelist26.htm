@@ -3,7 +3,7 @@
 <head>
 <!--
 Not automatically generated, has been changed:
-$Id: changelist26.htm,v 1.6 2011/05/24 07:54:36 ianb1957 Exp $ 
+$Id: changelist26.htm,v 1.7 2011/11/14 09:06:07 ianb1957 Exp $ 
 -->
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>AviSynth 26 - Changelist</title>
@@ -17,6 +17,9 @@ $Id: changelist26.htm,v 1.6 2011/05/24 07:54:36 ianb1957 Exp $
 
 <h3>Additions</h3>
 <ul>
+  <li>Add Script Functions :- Acos, Asin, Atan, Atan2, Cosh, Sinh, Tanh, Fmod,
+      Log10, BitLShift, BitRShiftS, BitRShiftU and Hex.</li>
+  <li>Add "ConditionalSelect","csc+[show]b" runtime filter.</li>
   <li>Add dither option to Levels, RGBAdjust &amp; Tweak.</li>
   <li>Add BitAnd(), BitNot(), BitOr() &amp; BitXor() script functions.</li>
   <li>Add StrCmp() &amp; StrCmpI() script functions.</li>
@@ -74,6 +77,10 @@ $Id: changelist26.htm,v 1.6 2011/05/24 07:54:36 ianb1957 Exp $
 
 <h3>Bugfixes</h3>
 <ul>
+  <li>Fix SincResize misuse of "int abs(int)" (Gavino). Fix Lanczos and
+      Blackman sinc use of float == 0.0, use small limit "&gt; 0.000001".</li>
+  <li>Fix Classic mode legend drawing for planar right limit and yuy2 centre line</li>
+  <li>Fix possible MT race. Use "env-&gt;ManageCache(MC_IncVFBRefcount, ...)" in ProtectVFB</li>
   <li>Fixed YtoUV() output image size bug for 3 clip case.</li>
   <li>Fixed ConvertToPlanar chroma alignment.</li>
   <li>Fixed Levels (RGB) change use of PixelClip(x) to min(max(x, 0), 255).</li>
@@ -107,7 +114,10 @@ $Id: changelist26.htm,v 1.6 2011/05/24 07:54:36 ianb1957 Exp $
 
 <h3>Optimizations</h3>
 <ul>
-  <li>RGBtoY8 Dynamic ASM code, suport for RGB24.</li>
+  <li>Change StackVertical/Horizontal to interative instead of recursive, 2^N
+      performace increase for 3 and more clips, i.e. 1 blit total instead of
+      blit(blit(blit(...</li>
+  <li>RGBtoY8 Dynamic ASM code, support for RGB24.</li>
   <li>YV24backtoYUY2 Dynamic ASM code.</li>
   <li>UtoY8, VtoY8 abuse subframe, zero cost.</li>
   <li>YV24<->RGB Add SSE2 and SSSE3 code paths, get rid of wide_enough.</li>
@@ -138,6 +148,9 @@ $Id: changelist26.htm,v 1.6 2011/05/24 07:54:36 ianb1957 Exp $
 
 <h3>Changes</h3>
 <ul>
+  <li>Explicitly specify calling sequence as __cdecl for Avisynth softwire routines, (was the compiler default)</li>
+  <li>Use env-&gt;Invoke("Cache", ...) everywhere instead of
+      Cache::Create_Cache(), allows for Cache to be overloaded by a plugin.</li>
   <li>ConvertToYUY2 Change from 0-1-1 kernel to 1-2-1 kernel.</li>
   <li>Tweak make Interp same units as minSat and maxSat.</li>
   <li>Check HKEY_CURRENT_USER for PluginDir first. (henktiggelaar)</li>
@@ -200,6 +213,6 @@ $Id: changelist26.htm,v 1.6 2011/05/24 07:54:36 ianb1957 Exp $
 <p>Please report bugs at <a href="http://sourceforge.net/projects/avisynth2">Sourceforge 
   Avisynth 2 page</a> - or - <a href="http://forum.doom9.org/forumdisplay.php?s=&forumid=33">Doom9's 
   Avisynth forum</a> 
-<p><kbd>$Date: 2011/05/24 07:54:36 $</kbd> 
+<p><kbd>$Date: 2011/11/14 09:06:07 $</kbd> 
 </body>
 </html>

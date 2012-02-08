@@ -12,7 +12,8 @@
 <p><code>Tweak </code>(<var>clip, float &quot;hue&quot;, float &quot;sat&quot;,
   float &quot;bright&quot;, float &quot;cont&quot;, bool &quot;coring&quot;,
   bool &quot;sse&quot;, float &quot;startHue&quot;, float &quot;endHue&quot;,
-float &quot;maxSat&quot;, float &quot;minSat&quot;, float &quot;interp&quot;</var>)
+float &quot;maxSat&quot;, float &quot;minSat&quot;, float &quot;interp&quot;,
+bool &quot;dither&quot;</var>)
 <p>This function provides the means to adjust the hue, saturation, brightness,
 and contrast of a video clip. In <em>v2.58</em>, both the saturation and hue can be
 adjusted for saturations in the range [<var>minSat</var>, <var>maxSat</var>]
@@ -62,7 +63,9 @@ The adjustment is interpolated between 1.0 and <var>sat</var> in the range [<i>m
 where <i>minS</i> and <i>maxS</i> are the equivalents of <var>minSat</var> and <var>maxSat</var>
 in chroma units (100% = 119 units). There is no interpolation for <var>interp</var>=0,
 which can be useful when a clip consists of uniform colors and you want a hard
-cutoff. The interpolation is linear.<h3>Usage and examples: adjusting contrast
+cutoff. The interpolation is linear.
+<p><i><var>dither</var></i> = true/false (false by default): When set to true, <a href="http://avisynth.org/mediawiki/Ordered_dithering" title="Ordered dithering">ordered
+dithering</a> is applied when doing the adjustment.<h3>Usage and examples: adjusting contrast
 and brightness</h3>
 <table border="1" width="100%">
   <tr>
@@ -141,7 +144,7 @@ result is pretty much identical.</p>
     </tr>
   </tbody>
 </table>
-<p><kbd>$Date: 2011/04/17 03:58:18 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:28:44 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

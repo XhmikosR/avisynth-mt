@@ -6,7 +6,7 @@
    <title>ImageReader / ImageSource Filter</title>
 <!--
 Automatically generated, don't change:
-$Id: imagesource.htm,v 1.14 2011/04/29 20:09:50 wilbertd Exp $
+$Id: imagesource.htm,v 1.15 2011/12/04 15:28:44 wilbertd Exp $
 -->
 </head>
 <body>
@@ -23,12 +23,12 @@ $Id: imagesource.htm,v 1.14 2011/04/29 20:09:50 wilbertd Exp $
 
 <p><code>ImageReader</code> is present in <em>v2.52</em>, it replaces WarpEnterprises'
   plugin, with some minor functionality changes. As of <em>v2.55</em>
-  <code>ImageSource </code> is equivalent, with some minor functionality changes.
-<code>ImageSource </code> is faster than <code>ImageReader</code>  when importing one picture.
+  <code>ImageSource</code> is equivalent, with some minor functionality changes.
+<code>ImageSource</code> is faster than <code>ImageReader</code> when importing one picture.
 
 <p><var>file</var>: template for the image file(s), where frame number
   substitution can be specified using
-  <cite><a href="http://www.cplusplus.com/ref/cstdio/sprintf.html">sprintf syntax</a></cite>.
+  <cite><a href="http://www.cplusplus.com/reference/clibrary/cstdio/sprintf/">sprintf syntax</a></cite>.
   For example, the files written by <code><a href="imagewriter.htm">ImageWriter</a></code>'s
   default parameters can be referenced with <tt>"c:\%06d.ebmp"</tt>. As of v2.56 if the
   template points to a single file then that file is read once and subsequently
@@ -75,12 +75,21 @@ $Id: imagesource.htm,v 1.14 2011/04/29 20:09:50 wilbertd Exp $
   <li>gif, exr, jp2, psd, hdr. [all of them require 1.7.8 DevIL.dll]</li>
 </ul>
 <p>
-  <code>ImageSourceAnim </code> (added in <em>v2.60</em>) lets you import
+  <code>ImageSourceAnim </code> (added in <em>v2.60</em>; requires 1.7.8
+DevIL.dll) lets you import
 animations (gif, ppm, tiff or psd). If there is a delay between the first and
 second image in the animation, the framerate is set accordingly. If this delay
 is zero, the framerate is set to 24 fps by default (and can be adjusted by
 setting the <i>fps</i> parameter). Note that <i>pixel_type</i> is set to RGB32
 by default.</p>
+
+<p>1.7.8 DevIL.dll can be downloaded <a href="https://sourceforge.net/projects/openil/files/DevIL%20Win32/1.7.8/DevIL-EndUser-x86-1.7.8.zip" class="external text" title="https://sourceforge.net/projects/openil/files/DevIL%20Win32/1.7.8/DevIL-EndUser-x86-1.7.8.zip" rel="nofollow">here</a>.
+Just put the DevIL.dll in your system folder (it will overwrite the 1.6.6
+DevIL.dll which comes with AviSynth). Be sure to use the non-unicode version,
+because the other one will result in crashes when loading pictures.</p>
+<p>DevIL.dll 1.7.8 requires the 2005 VC runtime libraries to be correctly
+installed: <a href="http://www.microsoft.com/downloads/details.aspx?familyid=200B2FD9-AE1A-4A14-984D-389C36F85647&amp;displaylang=en" class="external text" title="http://www.microsoft.com/downloads/details.aspx?familyid=200B2FD9-AE1A-4A14-984D-389C36F85647&amp;displaylang=en" rel="nofollow">Visual
+C++ 2005 SP1 Redistributable Package (x86)</a>.</p>
 
 <pre># Default parameters: read a 1000-frame native AviSynth EBMP sequence (at 24 fps)
 ImageSource()</pre>
@@ -147,7 +156,7 @@ ImageSourceAnim(&quot;F:\TestPics\8bit_animated.gif&quot;)</pre>
     </tr>
   </tbody>
 </table>
-<p><kbd>$Date: 2011/04/29 20:09:50 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:28:44 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

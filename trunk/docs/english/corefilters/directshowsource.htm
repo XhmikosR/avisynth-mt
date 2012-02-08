@@ -53,7 +53,7 @@ with asf or mov clips), use this option to force the correct framerate.</p>
 <var>seekzero</var> option first, if seeking still cause problems completely
 disable seeking. With seeking disabled the audio stream returns silence and the
 video stream the last rendered frame when trying to seek backwards. Note the
-Avisynth cache may provide limited access to the previous few frames, beyond
+AviSynth cache may provide limited access to the previous few frames, beyond
 that the last frame rendered will be returned.</p>
 <p><var>audio</var> = true (in <em>v2.53</em>): There is audio support in
 DirectShowSource. DirectShowSource is able to open formats like
@@ -192,13 +192,19 @@ YV12, YUY2, ARGB, RGB32 and RGB24 video formats and 32, 24, 16 and 8 bit PCM
 and IEEE FLOAT audio formats.</p>
 <p>A given GRF-file should only target one of an audio or video stream to avoid
 confusion when directshowsource attempts the connection to your open pin(s).
-From version 2.57 this single stream restriction is enforced.
+From version 2.57 this single stream restriction is enforced.</p>
 <h4>
 Downmixing AC3 to stereo</h4>
 There are essentially two ways to do this. The first is to set the downmixing in
 the configuration of your AC3 decoder itself, and the second one is to use the
 external downmixer of &quot;Trombettworks&quot;:
-<p>1) Install AC3filter. Open the AC3 file in WMP6.4 and select the file
+<p>1) Install AC3filter.&nbsp;</p>
+<p>a) Open <b>AC3Filter Config</b><br>
+On tab &quot;Main&quot; in section &quot;Output format&quot; select &quot;2/0 -
+stereo&quot;.<br>
+[Nothing else is needed.]</p>
+<p><i><b>-OR-</b></i></p>
+<p>b) Open the AC3 file in WMP6.4 and select the file
 properties. Set the output of AC3Filter on <b>2/0 - stereo</b>. If you want the
 best possible quality, select PCM Float as Sample format.</p>
 <img border="0" src="../pictures/corefilters/ac3downmix1a.jpg" width="425" height="435">
@@ -254,7 +260,7 @@ course you can also demux the downmixed WAV stream if needed).
     <td width="50%">logfile and logmask specify debug logging.</td>
   </tr>
 </table>
-<p><kbd>$Date: 2010/11/28 18:47:07 $</kbd></p>
+<p><kbd>$Date: 2012/01/08 15:34:35 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back" onClick="history.go(-1)"></form>
 </body>
 </html>

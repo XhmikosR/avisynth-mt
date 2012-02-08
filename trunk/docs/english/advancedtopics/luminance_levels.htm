@@ -56,7 +56,9 @@ standard-definition TV (SDTV) the standard is BT.601, and for high-definition TV
 (HDTV) the standard is BT.709.</p>
 <p>Luma values fall in a range. Unfortunately this range is not always the same.
 There are two commonly used ranges: 0-255 (aka PC levels) and 16-235 (aka TV
-levels). (explain why ...) This holds for both the YCbCr and the RGB format.
+levels). 'TV levels' were originally created to allow for analog overshoot and
+undershoot <a href="http://en.wikipedia.org/wiki/Rec._601" class="external autonumber" title="http://en.wikipedia.org/wiki/Rec._601" rel="nofollow">[1]</a>.
+This holds for both the YCbCr and the RGB format.
 Usually, your video is stored in 16-235 YCbCr, but it is played back at 0-255
 RGB. This implies that the levels need to be expanded at some point. But in some
 cases your video will be stored as 0-255 YCbCr (DV is an example of this), and
@@ -190,7 +192,7 @@ example ffdshow can be used for resizing the video.</p>
 clips</a> (thanks to littleD for making them).</p>
 <p><i>Thanks <a href="http://forum.doom9.org/showthread.php?t=143689" class="external text" title="http://forum.doom9.org/showthread.php?t=143689" rel="nofollow">clsid</a>
 for writing this great article.</i></p>
-<p><kbd>$Date: 2010/02/28 14:27:57 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:28:20 $</kbd></p>
 <FORM><INPUT TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></FORM>
 </BODY>
