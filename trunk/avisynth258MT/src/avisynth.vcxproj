@@ -28,6 +28,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -68,6 +69,9 @@
       <AdditionalLibraryDirectories>../distrib/include/pfc/Debug;../distrib/include/SoftWire/Debug;../distrib/include/SoundTouch/Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>LIBCMTD</IgnoreSpecificDefaultLibraries>
     </Link>
+    <MASM>
+      <PreserveIdentifierCase>3</PreserveIdentifierCase>
+    </MASM>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -97,6 +101,10 @@
       <SetChecksum>true</SetChecksum>
       <AdditionalLibraryDirectories>../distrib/include/pfc/Release;../distrib/include/SoftWire/Release;../distrib/include/SoundTouch/Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <MASM>
+      <PreserveIdentifierCase>3</PreserveIdentifierCase>
+      <AdditionalOptions>/coff %(AdditionalOptions)</AdditionalOptions>
+    </MASM>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="core\alignplanar.cpp" />
@@ -191,16 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="core\avisynth.def" />
-    <CustomBuild Include="convert\convert_a.asm">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Assembling %(FullPath)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ml.exe -c -coff -Cx -Zi -Fo$(IntDir)%(Filename).obj .\convert\%(Filename).asm
-</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename).obj;%(Outputs)</Outputs>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Assembling %(FullPath)...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ml.exe -c -coff -Cx -Fo$(IntDir)%(Filename).obj .\convert\%(Filename).asm
-</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename).obj;%(Outputs)</Outputs>
-    </CustomBuild>
+    <MASM Include="convert\convert_a.asm">
+      <FileType>Document</FileType>
+    </MASM>
     <None Include="..\distrib\AviSynth.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -295,5 +296,6 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
   </ImportGroup>
 </Project>
