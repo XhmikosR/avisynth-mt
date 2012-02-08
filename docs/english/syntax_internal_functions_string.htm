@@ -3,7 +3,7 @@
 <head>
 <!--
 Not Automatically generated, changed!:
-$Id: syntax_internal_functions_string.htm,v 1.2 2011/02/17 20:45:10 ianb1957 Exp $ 
+$Id: syntax_internal_functions_string.htm,v 1.4 2012/02/08 08:42:27 ianb1957 Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Syntax - String functions</title>
@@ -90,6 +90,37 @@ $Id: syntax_internal_functions_string.htm,v 1.2 2011/02/17 20:45:10 ianb1957 Exp
   <dd><i>Examples:</i></dd>
 </dl>
 <pre>Findstr(&quot;AviSynth&quot;, &quot;Syn&quot;) = 4</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">StrCmp</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">StrCmp(string,
+    string)</span></li>
+</ul>
+<dl>
+  <dd>Compares two character strings. The comparison is case-sensitive. If the
+    first string is less than the second string, the return value is negative.
+    If it's greater, the return value is positive. If they are equal, the return
+    value is zero. (More precisely, it returns the difference of the first
+    different character of both strings. See <a href="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" class="external text" title="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" rel="nofollow">here</a>.)</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>StrCmp(&quot;AviSynth&quot;, &quot;AviSynth&quot;) = 0 # strings are equal.
+StrCmp(&quot;AviSynth&quot;, &quot;Avisynth&quot;)&nbsp;!= 0 # strings are not equal.</pre>
+<ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">StrCmpi</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">StrCmpi(string,
+    string)</span></li>
+</ul>
+<dl>
+  <dd>Compares two character strings. The comparison is not case-sensitive. If
+    the first string is less than the second string, the return value is
+    negative. If it's greater, the return value is positive. If they are equal,
+    the return value is zero. (More precisely, it returns the difference of the
+    first different character of both strings. See <a href="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" class="external text" title="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" rel="nofollow">here</a>.)</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+<pre>StrCmpi(&quot;AviSynth&quot;, &quot;AviSynth&quot;) = 0 # strings are equal.
+StrCmpi(&quot;AviSynth&quot;, &quot;Avisynth&quot;) = 0 # strings are equal.
+StrCmpi(&quot;abcz&quot;, &quot;abcdefg&quot;)&nbsp;!= 0 # returns the difference betweeen &quot;z&quot; and &quot;d&quot; (which is positive).</pre>
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Chr</span> <span>&nbsp;</span>
     | <span>&nbsp;</span> v2.51 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Chr(int)</span></li>
@@ -254,6 +285,6 @@ Chr(9)  returns the tab   character</pre>
 <hr>
 <p>Back to <a href="syntax_internal_functions.htm" title="Internal functions">Internal
 functions</a>.</p>
-<p><kbd>$Date: 2011/02/17 20:45:10 $</kbd></p>
+<p><kbd>$Date: 2012/02/08 08:42:27 $</kbd></p>
 </body>
 </html>

@@ -3,23 +3,25 @@
 <head>
 <!--
 Not Automatically generated, changed!:
-$Id: syntax_operators.htm,v 1.4 2010/08/15 14:18:10 wilbertd Exp $ 
+$Id: syntax_operators.htm,v 1.5 2011/12/04 15:27:59 wilbertd Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Syntax - Operators</title>
 <link rel="stylesheet" type="text/css" href="../avisynth.css">
 </head>
 <body>
-<h2><span class="mw-headline">AviSynth Syntax - Operators</span></h2>
+<h2>AviSynth Syntax - Operators</h2>
 <p>As in all programming and scripting languages, operators in AviSynth script
 language allow the performance of actions (operations) onto <a href="syntax_script_variables.htm" title="Script variables">variables</a>.
 Operators form the basis for building up expressions, the building blocks of
 AviSynth scripts.</p>
 <p>AviSynth operators follow loosely the same rules as C operators, regarding
 meaning, precedence and associativity. By loosely we mean that there are some
-exceptions, indicated at the text below.</p>
+exceptions, indicated in the text below.</p>
+<p>Note that when a binary operator is applied to an int and a float, the int is
+first converted to float, as in C.</p>
 <a name="Available_Operators_per_Type"></a>
-<h3><span class="mw-headline">Available Operators per Type</span></h3>
+<h3>Available Operators per Type</h3>
 <p>For <b>all types</b> of operands (clip, int, float, string, bool) you can use
 the following operators:</p>
 <table border="1" cellspacing="2">
@@ -202,6 +204,6 @@ function call, is not strictly an operator, but effectively has a higher
 precedence than any operator symbol. So for example, <code>a + b.f(args)</code>
 means <code>a + f(b, args)</code> and not <code>f(a+b, args)</code> (which could
 be written as <code>(a+b).f(args)</code>)</p>
-<p><kbd>$Date: 2010/08/15 14:18:10 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:27:59 $</kbd></p>
 </body>
 </html>

@@ -156,6 +156,10 @@ Note, the <var>interlaced</var>=true setting only does something if the
 conversion YV12 &lt;-&gt; YUY2/RGB is requested, otherwise it's simply ignored.
 More about it can be found here &quot;<a href="../advancedtopics/interlaced_fieldbased.htm">Color
     conversions and interlaced / field-based video</a>&quot;.
+<p>When the target format is the same as the source format, the original clip
+will be returned. Except for the following situation: When both formats are
+YV12, the source clip will be processed when <var>ChromaInPlacement</var> and <var>ChromaOutPlacement</var> 
+differ. So this can be used to change the chroma placement in a YV12 clip.</p>
 <h3>Examples</h3>
 <p>Contrary to what one might expect, there is no unique way of converting YUV
 to RGB. In AviSynth the two most common ones are implemented: Rec.601 and
@@ -210,7 +214,8 @@ some other YUY2 codec) the codec converts from YUY2 to RGB incorrectly,
 you can use AviSynth's built-in filter to convert instead.
 <h3><span class="mw-headline">Conversion paths</span></h3>
 <ul>
-  <li>The <i>ChromaInPlacement</i> and <i>chromaresample</i> options are only used
+  <li>The <i>ChromaInPlacement</i>, <i>chromaresample</i> and <i>ChromaOutPlacement
+    </i>options are only used
     in the 'planar conversion part' of the conversion path, and they process the
     chroma of the clip.</li>
 </ul>
@@ -226,8 +231,10 @@ you can use AviSynth's built-in filter to convert instead.
     YUY2 to YV12)</li>
 </ul>
 <p>Suppose you have a YUY2 clip for example and you convert it to YV24. The YUY2
-will be converted to YV16 first without applying <i>chromaresample</i> and <i>chromaresample</i>.
-Then YV16 will be converted to YV24 while applying <i>chromaresample</i> and <i>chromaresample</i>.</p>
+will be converted to YV16 first without applying <i>ChromaInPlacement</i>, <i>chromaresample</i>
+and <i>ChromaOutPlacement</i>. Then YV16 will be converted to YV24 while
+applying <i>chromaresample</i>. <i>ChromaInPlacement</i> and <i>ChromaOutPlacement</i>
+won't be used since YV12 is not involved.</p>
 <a name="Sampling"></a>
 <h3><span class="mw-headline">Sampling</span></h3>
 <p><a href="../advancedtopics/sampling.htm" class="external text" title="http://avisynth.org/mediawiki/Sampling" rel="nofollow">This
@@ -243,7 +250,7 @@ detail.</p>
     <tr>
       <td width="5%">v2.60</td>
       <td width="95%">Added: ConvertToY8, ConvertToYV411, ConvertToYV16, ConvertToYV24,<br>
-        ChromaInPlacement and chromaresample, matrix=&quot;AVERAGE&quot;</td>
+        ChromaInPlacement, ChromaOutPlacement and chromaresample, matrix=&quot;AVERAGE&quot;</td>
     </tr>
     <tr>
       <td width="5%">v2.50</td>
@@ -251,7 +258,7 @@ detail.</p>
     </tr>
   </tbody>
 </table>
-<p><kbd>$Date: 2011/05/22 22:23:54 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:28:44 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

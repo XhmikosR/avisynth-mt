@@ -10,7 +10,7 @@
   float &quot;r&quot;,  float &quot;g&quot;,  float &quot;b&quot;,  float &quot;a&quot;,
   float &quot;rb&quot;, float &quot;gb&quot;, float &quot;bb&quot;, float &quot;ab&quot;,
   float &quot;rg&quot;, float &quot;gg&quot;, float &quot;bg&quot;, float &quot;ag&quot;,
-  bool &quot;analyze&quot;</var>)</p>
+  bool &quot;analyze&quot;, bool &quot;dither&quot;</var>)</p>
 <p>This filter multiplies each color channel with the given value, adds the
 given bias offset then adjusts the relevant gamma, clipping the result at 0 and
 255. Note that <code>RGBAdjust</code>(1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1)
@@ -37,6 +37,8 @@ and a standard deviation for all channels. There is a "loose minimum&quot; and "
 maximum&quot;. The "loose" values are made to filter out very bright or very dark noise specs
 creating an artificially low or high minimum / maximum (it just means that the amount
 of red/green/blue of 255/256 of all pixels is above (under) the loose minimum (maximum)).</p>
+<p><i><var>dither</var></i> = true/false (false by default): When set to true, <a href="http://avisynth.org/mediawiki/Ordered_dithering" title="Ordered dithering">ordered
+dithering</a> is applied when doing the adjustment.</p>
 <p>Keep in mind ALL the values are not scaled to accomodate changes to one (for
 that you should use levels) so doing something like:</p>
 <pre>RGBAdjust(2, 1, 1, 1)</pre>
@@ -55,11 +57,15 @@ Or more compact</p>
   <tbody>
     <tr>
       <td>v2.56</td>
-      <td>added offsets, gamma, analyze</td>
+      <td>Added offsets, gamma, analyze.</td>
+    </tr>
+    <tr>
+      <td>v2.60</td>
+      <td>Added dither.</td>
     </tr>
   </tbody>
 </table>
-<p><kbd>$Date: 2005/05/05 06:19:11 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:28:44 $</kbd></p>
 <FORM>
 <INPUT TYPE="Button" VALUE="Back"
 onClick="history.go(-1)">

@@ -3,7 +3,7 @@
 <head>
 <!--
 Not Automatically generated, changed!:
-$Id: syntax_script_variables.htm,v 1.5 2009/09/12 20:57:20 wilbertd Exp $ 
+$Id: syntax_script_variables.htm,v 1.6 2011/12/04 15:27:59 wilbertd Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Syntax - Script variables</title>
@@ -20,8 +20,7 @@ letters, digits, and underscores (_), but no other characters. The name cannot
 start with a digit.</p>
 <p>You may use characters from your language system codepage (locale) in strings
 and file names (ANSI 8 bit only, not Unicode).</p>
-<p>A variable's placement in an <i>expression</i> is determined by the</p>
-<p>&nbsp; <a href="syntax_ref.htm" title="AviSynth Syntax">AviSynth
+<p>A variable's placement in an <i>expression</i> is determined by the&nbsp;<a href="syntax_ref.htm" title="AviSynth Syntax">AviSynth
 Syntax</a>.</p>
 <p>Variables can have <span class="diffchange">a value of </span>one of the following <i>types</i>:</p>
 <ul>
@@ -57,7 +56,7 @@ Syntax</a>.</p>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">int</span></li>
 </ul>
 <dl>
-  <dd><span class="diffchange">An integer. An integer literal is </span>entered
+  <dd><span class="diffchange">An integer (32 bits, signed). An integer literal is </span>entered
     as a sequence of digits, optionally with a + or - at the beginning. <span class="diffchange">The
     value</span> can be given in <i>hexadecimal</i> by preceding them
     with a &quot;$&quot; character. For example <tt>$FF</tt> as well as <tt>$ff</tt>
@@ -67,8 +66,9 @@ Syntax</a>.</p>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">float</span></li>
 </ul>
 <dl>
-  <dd><span class="diffchange">A floating</span>-point <span class="diffchange">number.
-    Literals</span> are entered as a sequence of digits with a decimal
+  <dd>A single-precision, <a href="http://en.wikipedia.org/wiki/Floating_point" class="external text" title="http://en.wikipedia.org/wiki/Floating_point" rel="nofollow">floating-point</a>
+    number.
+    Literals are entered as a sequence of digits with a decimal
     point (.) somewhere in it and an optional + or -. For example, +1. is
     treated as a floating-point number. Note that exponent-style notation is <b>not</b>
     supported.</dd>
@@ -123,6 +123,6 @@ y = 256        # type int (initial value is in decimal)
 global f = 0.0 # type float declared globally
 ...
 function my_recolor_filter(clip c, int new_color, float amount, val &quot;userdata&quot;) { ... }</pre>
-<p><kbd>$Date: 2009/09/12 20:57:20 $</kbd></p>
+<p><kbd>$Date: 2011/12/04 15:27:59 $</kbd></p>
 </body>
 </html>

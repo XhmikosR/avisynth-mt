@@ -3,7 +3,7 @@
 <head>
 <!--
 Automatically generated, don't change:
-$Id: importing_media.htm,v 1.10 2011/04/29 20:10:09 wilbertd Exp $ 
+$Id: importing_media.htm,v 1.11 2011/12/04 15:28:20 wilbertd Exp $ 
 -->
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title> Importing Media into AviSynth </title>
@@ -72,7 +72,62 @@ AC3filter), or demux the audio and load the dts with NicAudio.</i></p>
    codec to open (that is decode) your video in AviSynth and an ACM
    (<a href="http://en.wikipedia.org/wiki/Audio_Compression_Manager">Audio Compression Manager</a>)
    codec to open your audio in AviSynth. For many video and audio format such
-   codecs are available, but certainly not for all of them.</p>
+   codecs are available, but certainly not for all of them. Some possible
+formats (as well as where to download the required codecs) are given below:</p>
+<table border="1" width="66%">
+  <tr>
+    <td width="50%"><b>Format</b></td>
+    <td width="50%"><b>ACM codec</b></td>
+  </tr>
+  <tr>
+    <td width="50%">MP2</td>
+    <td width="50%"><a href="http://www.wilbertdijkhof.com/qmpeg_mp2.zip" class="external text" title="http://www.wilbertdijkhof.com/qmpeg_mp2.zip" rel="nofollow">QDesign</a></td>
+  </tr>
+  <tr>
+    <td width="50%">MP3</td>
+    <td width="50%"><a href="http://www.free-codecs.com/MPEG_Layer_3_Codec_download.htm" class="external text" title="http://www.free-codecs.com/MPEG_Layer_3_Codec_download.htm" rel="nofollow">Radium
+        Codec</a> or <a href="http://www.free-codecs.com/LAME_ACM_Codec_download.htm" class="external text" title="http://www.free-codecs.com/LAME_ACM_Codec_download.htm" rel="nofollow">Lame
+        ACM</a></td>
+  </tr>
+  <tr>
+    <td width="50%">AC3</td>
+    <td width="50%"><a class="external text" title="http://fcchandler.home.comcast.net/AC3ACM/index.html" rel="nofollow" href="http://fcchandler.home.comcast.net/~fcchandler/AC3ACM/">AC3
+      ACM codec</a></td>
+  </tr>
+  <tr>
+    <td width="50%">AC3/DTS</td>
+    <td width="50%"><a href="http://ac3filter.net/wiki/Download_AC3Filter">AC3Filter</a>
+      (The ACM codec used to return 2 channel output. Dunno if that's still the
+      case.)</td>
+  </tr>
+  <tr>
+    <td width="50%">AAC</td>
+    <td width="50%"><a href="http://fcchandler.home.comcast.net/~fcchandler/AACACM/" class="external text" title="http://fcchandler.home.comcast.net/~fcchandler/AACACM/" rel="nofollow">AAC
+        ACM Codec</a></td>
+  </tr>
+  <tr>
+    <td width="50%">FLAC</td>
+    <td width="50%"><a href="http://www.jorystone.com/2004/09/flac-acm.html">CoreFLAC
+      ACM</a></td>
+  </tr>
+</table>
+<p>Examples:</p>
+<pre>AviSource(&quot;d:\xvid_dts.avi&quot;)</pre>
+<p>Alternatively, use DirectShowSource with an AC3/DTS directshow filter like
+<a href="http://sourceforge.net/project/showfiles.php?group_id=66022">AC3Flter</a>
+ (make sure that downmixing is turned off, unless you want it to be downmixed or
+ it is stereo/mono) and an
+ <a href="http://sourceforge.net/project/showfiles.php?group_id=82303"> AVI-AC3/DTS splitter</a>,
+ or ffdshow (with DTS set to libdts). Use AC3Filter and create the script:</p>
+<pre>DirectShowSource(&quot;d:\xvid_dts.avi&quot;)</pre>
+
+<p>For AAC, use a directshow filter like CoreAAC (make sure downmixing is turned
+off, unless you want it to be downmixed) or ffdshow (with AAC set to libfaad2 or
+realaac). We used ffdshow here:</p>
+<p><img border="0" src="../pictures/advancedtopics/ffdshow_avi_aac.jpg" width="575" height="465"></p>
+<p>use the script</p>
+<pre>DirectShowSource(&quot;d:\xvid_aac.avi&quot;)</pre>
+<p>to load your AVI.</p>
 <p>The number of different video formats which can be found in an AVI is pretty
 limited. A selection of them:</p>
 <ul>
@@ -89,46 +144,6 @@ properties of MPEG-4 AVC has been used to create it can be placed into AVI; as
   <li>WMV (install the <a href="http://nic.dnsalias.com/wm9enc.html">WM9/VC-1 codecs</a>).</li>
   <li><a href="http://forum.doom9.org/showthread.php?t=97877">VP7</a>.</li>
 </ul>
-<p>A list of audio
-   formats is given below:&nbsp;</p>
-
-<p><u>audio: uncompressed WAV, CBR/VBR MP2 or CBR/VBR MP3:</u></p>
-<p>There is an ACM codec for MP2 called
-   [<a href="http://www.geocities.com/wilbertdijkhof/qmpeg_mp2.zip">QDesign</a>].
-   There are&nbsp; ACM codecs for MP3
-   [<a href="http://www.free-codecs.com/MPEG_Layer_3_Codec_download.htm">Radium Codec</a>]
-   or [<a href="http://www.free-codecs.com/LAME_ACM_Codec_download.htm">Lame ACM</a>].</p>
-
-<p><u>audio: AC3/DTS:</u></p>
-<p>There is an ACM codec for AC3 called
-   [<a href="http://fcchandler.home.comcast.net/AC3ACM/index.html">AC3ACM</a>].
-   There is an ACM codec for AC3/DTS called valex ACM codec
-   [<a href="http://ac3filter.sourceforge.net/download/vac3acm_0_1a.exe">vac3acm</a>]
-[<a href="http://ac3filter.sourceforge.net/download/vac3acm_0_1a_src.zip">source</a>]
-(the latter always returns&nbsp; 2 channel output).</p>
-<p>Examples:</p>
-<pre>AviSource(&quot;d:\xvid_dts.avi&quot;)</pre>
-<p>Get an AC3/DTS directshow filter like
-<a href="http://sourceforge.net/project/showfiles.php?group_id=66022">AC3Flter</a>
- (make sure that downmixing is turned off, unless you want it to be downmixed or
- it is stereo/mono) and an
- <a href="http://sourceforge.net/project/showfiles.php?group_id=82303"> AVI-AC3/DTS splitter</a>,
- or ffdshow (with DTS set to libdts). Use AC3Filter and create the script:</p>
-<pre>DirectShowSource(&quot;d:\xvid_dts.avi&quot;)</pre>
-
-<p><u>audio: AAC:</u></p>
-<p>For AAC there is no reliable ACM codec, so it is not possible to load your
-   clip with AAC with AviSource. Get an AAC directshow filter like CoreAAC (make
-   sure downmixing is turned off, unless you want it to be downmixed) or ffdshow
-   (with AAC set to libfaad2 or realaac). We used
-   <a href="http://sourceforge.net/project/showfiles.php?group_id=173941"> ffdshow</a>
-   here:</p>
-<p><img border="0" src="../pictures/advancedtopics/ffdshow_avi_aac.jpg" width="575" height="465"></p>
-<p>use the script</p>
-<pre>DirectShowSource(&quot;d:\xvid_aac.avi&quot;)</pre>
-<p>to load your AVI.</p>
-<p>Edit: Now there is an <a href="http://fcchandler.home.comcast.net/~fcchandler/AACACM/" class="external text" title="http://fcchandler.home.comcast.net/~fcchandler/AACACM/" rel="nofollow">AAC
-ACM Codec</a>.</p>
 <h4><a name="cont_audio"></a>1.1.2) Other containers with audio:</h4>
 <p>It is not always possible to load your clips in AviSynth using AviSource (or
    one of the specific plugins which will be discussed below). Examples are
@@ -313,7 +328,7 @@ Quicktime 7 for getting audio and video.</p>
 QTInput(&quot;FileName.mov&quot;, color=2)
 
 # with audio (in many cases possible with QuickTime 7)
-QTInput(&quot;FileName.mov&quot;, color=2, audio=true)
+QTInput(&quot;FileName.mov&quot;, color=2, audio=1)
 
 # raw (with for example a YUYV format):
 QTInput(&quot;FileName.mov&quot;, color=2, mode=1, raw=&quot;yuyv&quot;)
@@ -350,10 +365,12 @@ QTReader(&quot;C:\quicktime.mov&quot;) </pre>
   <li>using an AviSynth plugin which is designed to open some specific format.</li>
   <li>using the DirectShowSource plugin.</li>
 </ol>
-<p>A list of all these plugins and their accepted formats is given below.</p>
+<p>A list of all these plugins and their accepted formats are given below, but
+it is advised to load your clips using a specific format plugin (thus option
+(1)), because it is more reliable than using the DirectShowSource plugin.</p>
 
-<p><u>1) AviSynth filters and plugins which are designed to open specific formats:</u></p>
-<p><u>WavSource - WAV:</u></p>
+<h4>1) AviSynth filters and plugins which are designed to open specific formats:</h4>
+<h5>WavSource - WAV:</h5>
 <p><a href="corefilters/wavsource.htm">WavSource</a> supports all kind of WAVs,
    such as uncompressed WAV or MP3/MP3/AC3/DTS audio with a WAVE header. A WAV
    can be loaded in AviSynth provided you have an appropriate<font color="#FF0000">
@@ -362,18 +379,18 @@ QTReader(&quot;C:\quicktime.mov&quot;) </pre>
    is used to decode the WAV is specified in the beginning of the media file (in
    its header; a bit similar as fourCC for video codecs).</p>
 
-<p><u>audio: MP2/MP3 with a WAVE header:</u></p>
+<h5>Audio: MP2/MP3 with a WAVE header:</h5>
 <p>There is an ACM codec for MP2 called
-   [<a href="http://www.geocities.com/wilbertdijkhof/qmpeg_mp2.zip">QDesign</a>].
+   [<a href="http://www.wilbertdijkhof.com/qmpeg_mp2.zip">QDesign</a>].
    There are&nbsp; ACM codecs for MP3
    [<a href="http://www.free-codecs.com/MPEG_Layer_3_Codec_download.htm">Radium Codec</a>]
    or [<a href="http://www.free-codecs.com/LAME_ACM_Codec_download.htm">Lame ACM</a>].</p>
 
-<p><u>audio: AC3/DTS in a WAVE header (also called DD-AC3 and DTSWAV):</u></p>
+<h5>Audio: AC3/DTS with a WAVE header (also called DD-AC3 and DTSWAV):</h5>
 <p>There is an ACM codec for AC3 called
-   [<a href="http://fcchandler.home.comcast.net/AC3ACM/index.html">AC3ACM</a>].
-   There is an ACM codec for AC3/DTS called valex ACM codec
-   [<a href="http://sourceforge.net/project/showfiles.php?group_id=66022">vac3acm</a>].</p>
+   [<a href="http://fcchandler.home.comcast.net/~fcchandler/AC3ACM/">AC3 ACM
+codec</a>].
+   There is an ACM codec for AC3/DTS called [<a href="http://ac3filter.net/wiki/Download_AC3Filter">AC3Filter</a>].</p>
 <p>
 Example:</p>
 <pre># DTS in WAV:
@@ -386,16 +403,16 @@ AudioDub(V, A)</pre>
 <p><font color="#FF0000">A few examples:</font></p>
 <pre><font color="#FF0000">xxx</font></pre>
 
-<p><u>MPASource - MP1/MP2/MP3/MPA:</u></p>
+<h5>MPASource - MP1/MP2/MP3/MPA:</h5>
 <p>Example:</p>
 <pre>LoadPlugin(&quot;C:\Program Files\AviSynth25\plugins\mpasource.dll&quot;)
 V = BlankClip(height=576, width=720, fps=25)
 A = MPASource(&quot;D:\audio.mp3&quot;, normalize = false)
 AudioDub(V, A)</pre>
 
-<p><u>NicAudio - MP1/MP2/MP3/MPA/AC3/DTS/LPCM:</u><br>
-<br>
-Some examples:</p>
+<h5>NicAudio - MP1/MP2/MP3/MPA/AC3/DTS/LPCM:</h5>
+
+<p>Some examples:</p>
 <pre>LoadPlugin(&quot;C:\Program Files\AviSynth25\plugins\NicAudio.dll&quot;)
 
 # AC3 audio:
@@ -409,7 +426,7 @@ V = BlankClip(height=576, width=720, fps=25)
 A = NicLPCMSource(&quot;D:\audio.lpcm&quot;, 48000, 16, 2)
 AudioDub(V, A)</pre>
 
-<p><u>BassAudio - MP3/MP2/MP1/OGG/WAV/AIFF/WMA/FLAC/WavPack/Speex/Musepack/AAC/M4A/APE/CDA:</u></p>
+<h5>BassAudio - MP3/MP2/MP1/OGG/WAV/AIFF/WMA/FLAC/WavPack/Speex/Musepack/AAC/M4A/APE/CDA:</h5>
 <p>BassAudio can be downloaded <a href="http://forum.doom9.org/showthread.php?t=108254">here</a>.
 Some examples:</p>
 <pre># FLAC files:
@@ -426,16 +443,17 @@ bassAudioSource(&quot;C:\ab\Dido\001 Here With Me.aac&quot;)</pre>
 # Place bass_cd.dll in the same folder as bassAudio.dll
 bassAudioSource(&quot;D:\Track01.cda&quot;)</pre>
 
-<p><u>2) DirectShowSource:</u></p>
+<h4>2) DirectShowSource:</h4>
+
 <p>Have a look at section &quot;<a href="#cont_audio"> Other containers with
    audio</a>&quot; for more information. Some directshow filters (besides the
    ones available in ffdshow) for Ogg Vorbis, Speex, Theora and FLAC can be
    found <a href="http://www.illiminable.com/ogg/">here</a>.</p>
 
-<p><u>audio: MP2/MP3 with a WAVE header:</u></p>
+<h5>Audio: MP2/MP3 with a WAVE header:</h5>
 <p>Use ffdshow: MP1/2/3 decoding enabled and select mp3lib or libmad.</p>
 
-<p><u>audio: AC3/DTS with a WAVE header (also called DD-AC3 and DTSWAV):</u></p>
+<h5>Audio: AC3/DTS with a WAVE header (also called DD-AC3 and DTSWAV):</h5>
 <p>Use ffdshow: DTS decoding enabled and uncompressed: support all formats.</p>
 <p>Example:</p>
 <pre># DTS in WAV:
@@ -449,7 +467,7 @@ V = BlankClip(height=576, width=720, fps=25)
 A = DirectShowSource(&quot;D:\audio_dts_wav.grf&quot;, video=false)
 AudioDub(V, A)</pre>
 
-<p><u>aac:</u></p>
+<h5>AAC:</h5>
 <p>Get an AAC directshow filter like CoreAAC (make sure downmixing is turned
    off, unless you want it to be downmixed;) or ffdshow (with AAC set to
    libfaad or realaac), and use</p>
@@ -533,7 +551,7 @@ swf (ffmpegsource) should be added.</li>
 </ul>
 
 <p>
-<kbd>$Date: 2011/04/29 20:10:09 $</kbd>
+<kbd>$Date: 2011/12/04 15:28:20 $</kbd>
 </p>
 </body>
 </html>
