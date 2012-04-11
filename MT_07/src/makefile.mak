@@ -3,7 +3,7 @@
 #*  makefile.mak
 #*    makefile for building with WDK
 #*
-#*  Copyright (C) 2011 XhmikosR
+#*  Copyright (C) 2011-2012 XhmikosR
 #*
 #*  This program is free software: you can redistribute it and/or modify
 #*  it under the terms of the GNU General Public License as published by
@@ -40,7 +40,7 @@ EXE       = $(BINDIR)\MT.dll
 
 DEFINES   = /D "_WINDOWS" /D "NDEBUG" /D "WIN32" /D "_WIN32_WINNT=0x0500" /D "_UNICODE" \
             /D "UNICODE"
-CPPFLAGS  = /nologo /c /Fo"$(OBJDIR)/" /W3 /EHsc /MD /O2 /GL /MP /arch:SSE $(DEFINES)
+CPPFLAGS  = /nologo /c /Fo"$(OBJDIR)/" /W3 /EHsc /MD /O2 /Oy /GL /MP /arch:SSE $(DEFINES)
 LDFLAGS   = /NOLOGO /WX /INCREMENTAL:NO /RELEASE /OPT:REF /OPT:ICF /SUBSYSTEM:WINDOWS,5.0 \
             /LARGEADDRESSAWARE /DLL /MACHINE:X86 /LTCG msvcrt_win2000.obj
 RFLAGS    = /l 0x0409 /d "WIN32" /d "NDEBUG"
