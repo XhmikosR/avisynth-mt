@@ -71,6 +71,8 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
       <PrecompiledHeaderFile>pfc.h</PrecompiledHeaderFile>
+      <OmitFramePointers>true</OmitFramePointers>
+      <Optimization>MaxSpeed</Optimization>
     </ClCompile>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
