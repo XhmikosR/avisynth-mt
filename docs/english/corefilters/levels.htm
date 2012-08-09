@@ -36,13 +36,9 @@ concept, and I don't know how to do it properly in YUV. However, if <var>gamma</
 adjusting brightness or contrast it is better to use <a href="tweak.htm">Tweak</a>
 or <a href="coloryuv.htm">ColorYUV</a>, because <code>Levels</code>  also
 changes the chroma of the clip.
-<p>In <em>v2.53</em> an optional <var>coring</var> = <var>true/false</var>  (true by default, which reflects the behaviour in older versions) is added.<br>
- <var>coring</var> = true: input luma is clamped to [16,235] (and the chroma to [16,240]), result is *scaled* from [16,235] to [0,255], 
-the conversion takes place according to the formula above, and output is *scaled* back from [0,255] to [16,235].<br>
- <var>coring</var> = false: conversion takes place according to the formula above.
+<p>In <em>v2.53</em> an optional <var>coring</var> = <var>true/false</var>  (true by default, which reflects the behaviour in older versions) is added.
 <p>
- <var>coring</var>  = true/false (true by default, which reflects the behaviour
-in older versions): When set to true: input luma is clamped to [16,235] (and the
+ <var>coring</var>  = true/false (true by default): When set to true: input luma is clamped to [16,235] (and the
 chroma to [16,240]), this result is *scaled* from [16,235] to [0,255], the
 conversion takes place according to the formula above, and output is *scaled*
 back from [0,255] to [16,235]. When set to false, the conversion takes place
@@ -68,11 +64,11 @@ Levels(0, 1, 255, 255, 0)
 Levels(0, 1, 255, 0, 255, coring=false)
 
 # scales a [0,255] clip to [16,235]:
-Levels(0, 1, 255, 16, 235, coring=false)  # this is the same as ColorYUV(levels=&quot;PC-&gt;TV&quot;)
-
+Levels(0, 1, 255, 16, 235, coring=false)  # note both luma and chroma components are scaled by the same
+                                          # amount, so it's not exactly the same as ColorYUV(levels=&quot;PC-&gt;TV&quot;)
 # scales a [16,235] clip to [0,255]:
-Levels(16, 1, 235, 0, 255, coring=false)  # this is the same as ColorYUV(levels=&quot;TV-&gt;PC&quot;)
-
+Levels(16, 1, 235, 0, 255, coring=false)  # note both luma and chroma components are scaled by the same
+                                          # amount, so it's not exactly the same as ColorYUV(levels=&quot;TV-&gt;PC&quot;)
 # makes a clip 100% black
 Levels(0, 1.0, 255, 0, 0)</pre>
 
@@ -90,7 +86,7 @@ Levels(0, 1.0, 255, 0, 0)</pre>
   </tbody>
 </table>
 
-<p><kbd>$Date: 2011/12/04 15:28:44 $</kbd></p>
+<p><kbd>$Date: 2012/04/09 08:19:32 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

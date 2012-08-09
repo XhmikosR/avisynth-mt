@@ -3,7 +3,7 @@
 <head>
 <!--
 Not automatically generated, has been changed:
-$Id: changelist26.htm,v 1.7 2011/11/14 09:06:07 ianb1957 Exp $ 
+$Id: changelist26.htm,v 1.10 2012/04/15 14:13:14 wilbertd Exp $ 
 -->
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <title>AviSynth 26 - Changelist</title>
@@ -17,6 +17,17 @@ $Id: changelist26.htm,v 1.7 2011/11/14 09:06:07 ianb1957 Exp $
 
 <h3>Additions</h3>
 <ul>
+  <li>Add DSS pixel_types: Y41P, Y411 or AYUV.</li>
+  <li>Add Full and Auto pixel_types to AviSource. Auto: fY8 = fYV12 = fYUY2 =
+    fRGB32 = fRGB24. FUll: fY8 = fYV12 = fYV16 = fYV24 = fYV411 = fYUY2 = fRGB32
+    = fRGB24.</li>
+  <li>Add &quot;AudioLengthS&quot;, &quot;Ord&quot; &amp;
+        &quot;FillStr&quot; script functions.</li>
+  <li>Add AudioTrim(clip, float, float) audio priority trimming, args in fractional seconds.</li>
+  <li>Add Trim(M, Length=N[, Pad=False]) and Trim(M, End=N[, Pad=False]) function overloads
+      for explicit Trimming. Length=0 means zero frame clip. End=0 means end at frame 0.</li>
+  <li>Add SeparateRows (zero cost) and SeparateColumns (slow) frame slashing
+    filters.</li>
   <li>Add Script Functions :- Acos, Asin, Atan, Atan2, Cosh, Sinh, Tanh, Fmod,
       Log10, BitLShift, BitRShiftS, BitRShiftU and Hex.</li>
   <li>Add "ConditionalSelect","csc+[show]b" runtime filter.</li>
@@ -77,10 +88,17 @@ $Id: changelist26.htm,v 1.7 2011/11/14 09:06:07 ianb1957 Exp $
 
 <h3>Bugfixes</h3>
 <ul>
-  <li>Fix SincResize misuse of "int abs(int)" (Gavino). Fix Lanczos and
+  <li>Fixed ImageReader upside down TIFF in 178 DevIL. Add DevIL version to
+      messages, pad/crop images to match first frame with, deal with add 1 to
+      IL_NUM_IMAGES bug (all ImageSourceAnim). (Wilbert)</li>
+  <li>Fixed SaveString 'string+string' bug when total length is 4096*K-1, K is +int.</li>
+  <li>Fixed SincResize misuse of "int abs(int)" (Gavino). Fix Lanczos and
       Blackman sinc use of float == 0.0, use small limit "&gt; 0.000001".</li>
-  <li>Fix Classic mode legend drawing for planar right limit and yuy2 centre line</li>
-  <li>Fix possible MT race. Use "env-&gt;ManageCache(MC_IncVFBRefcount, ...)" in ProtectVFB</li>
+  <li>Fixed Classic mode legend drawing for planar right limit and yuy2 centre line.</li>
+  <li>Fixed possible MT race. Use "env-&gt;ManageCache(MC_IncVFBRefcount, ...)" in ProtectVFB.</li>
+  <li>Fixed SwapYToUV output image size bug for 3 clip case.</li>
+  <li>Fixed Crop limit tests for RGB.</li>
+  <li>Fixed Overlay yellow tint on rec601 RGB import conversion.</li>
   <li>Fixed YtoUV() output image size bug for 3 clip case.</li>
   <li>Fixed ConvertToPlanar chroma alignment.</li>
   <li>Fixed Levels (RGB) change use of PixelClip(x) to min(max(x, 0), 255).</li>
@@ -114,6 +132,7 @@ $Id: changelist26.htm,v 1.7 2011/11/14 09:06:07 ianb1957 Exp $
 
 <h3>Optimizations</h3>
 <ul>
+  <li>Speedup ConvertToMono(), minor refactor MixAudio().</li>
   <li>Change StackVertical/Horizontal to interative instead of recursive, 2^N
       performace increase for 3 and more clips, i.e. 1 blit total instead of
       blit(blit(blit(...</li>
@@ -148,6 +167,11 @@ $Id: changelist26.htm,v 1.7 2011/11/14 09:06:07 ianb1957 Exp $
 
 <h3>Changes</h3>
 <ul>
+  <li>Initial 2.6 API entry point linkage.</li>
+  <li>Use Invoke for graph tail, enhance non-clip output error reporting.</li>
+  <li>PopContext when inner block Asserts/throws (maxxon).</li>
+  <li>Remove duplicate definitions (Wilbert).</li>
+  <li>Enhance non-clip output error reporting.</li>
   <li>Explicitly specify calling sequence as __cdecl for Avisynth softwire routines, (was the compiler default)</li>
   <li>Use env-&gt;Invoke("Cache", ...) everywhere instead of
       Cache::Create_Cache(), allows for Cache to be overloaded by a plugin.</li>
@@ -213,6 +237,6 @@ $Id: changelist26.htm,v 1.7 2011/11/14 09:06:07 ianb1957 Exp $
 <p>Please report bugs at <a href="http://sourceforge.net/projects/avisynth2">Sourceforge 
   Avisynth 2 page</a> - or - <a href="http://forum.doom9.org/forumdisplay.php?s=&forumid=33">Doom9's 
   Avisynth forum</a> 
-<p><kbd>$Date: 2011/11/14 09:06:07 $</kbd> 
+<p><kbd>$Date: 2012/04/15 14:13:14 $</kbd> 
 </body>
 </html>

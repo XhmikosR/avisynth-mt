@@ -34,6 +34,27 @@ and the special runtime variable <var>current_frame</var> (the framenumber of th
 The string <var>operator</var> can be "equals", &quot;greaterthan&quot; or "lessthan".
 Or "=", "&gt;" or "&lt;" respectively.
 </p>
+<h2>
+<a NAME="ConditionalSelect"></a>ConditionalSelect
+</h2>
+<p><code>ConditionalSelect </code>(<var>clip testclip, string expression, clip source0,
+clip source1, clip source2, ... , bool &quot;show&quot;</var>)<p><code>ConditionalSelect</code>
+returns each one frame from several source clips based on an integer evaluator.
+If the expression evaluates to the integer j (starting at zero), the frame from
+the j-th source clip is returned.</p>
+<p>This will return a frame from vid_blur2 when the average luma value of a
+frame (of vid) is less than 15, will return a frame from vid_blur when the
+average luma value of a frame (of vid) is higher than 15 but smaller than 25.
+Otherwise a frame from vid will be returned.</p>
+<pre>vid = AviSource(&quot;file&quot;)
+vid_blur = vid.Blur(1.0)
+vid_blur2 = vid.Blur(1.5)
+ConditionalSelect(vid, &quot;luma_av = AverageLuma()&quot;+chr(13)+&quot;luma_av &lt; 25&nbsp;? (luma_av &lt; 15&nbsp;? 2&nbsp;: 1)&nbsp;: 0&quot;, vid, vid_blur, vid_blur2)</pre>
+Adding <var>show</var>=&quot;true&quot; will display the actual values on the screen.
+<p>If a frame is requested from a non-existing source clip (say the expression
+evaluates to -1 or 3 in the example above, where 3 source clips are supplied),
+the frame of the <var>testclip</var> will be returned.</p>
+<p>Audio from "testclip" is passed through untouched.</p>
 <h2><a NAME="ScriptClip"></a>ScriptClip
 </h2>
 <p><code>ScriptClip </code>(<var>clip, string filter, bool &quot;show&quot;, bool
@@ -500,7 +521,7 @@ AviSource produces the frame and sends it to ConvertToYV12, etc.</li>
 </ul>
 <p>A few details were omitted, but this is how the script basically works.
 </p>
-<kbd>$Date: 2009/10/11 11:43:31 $</kbd>
+<kbd>$Date: 2012/04/09 08:19:32 $</kbd>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

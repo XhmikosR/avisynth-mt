@@ -3,7 +3,7 @@
 <head>
 <!--
 Not Automatically generated, changed!:
-$Id: syntax_internal_functions_control.htm,v 1.7 2011/01/16 12:24:09 wilbertd Exp $ 
+$Id: syntax_internal_functions_control.htm,v 1.8 2012/04/15 14:13:14 wilbertd Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Syntax - Control functions</title>
@@ -37,7 +37,8 @@ Apply(&quot;BicubicResize&quot;, last, 352, 288)
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Eval</span>
     <span>&nbsp;</span> | <span>&nbsp;</span> <span>&nbsp;</span> | <span>&nbsp;</span>
-    <span style="color: purple; font-weight: bold;">Eval(expression)</span></li>
+    <span style="color: purple; font-weight: bold;">Eval(expression [, string
+    &quot;name&quot;])</span></li>
 </ul>
 <dl>
   <dd>Eval evaluates an arbitrary <i>expression</i> as if it was placed inside
@@ -47,7 +48,9 @@ Apply(&quot;BicubicResize&quot;, last, 352, 288)
     that is explicitly assigned to or to the last special variable.</dd>
   <dd>You can use Eval to construct and evaluate expressions dynamically inside
     your scripts, based on variable input data. Below some specific examples are
-    shown but you get the general idea.</dd>
+    shown but you get the general idea.<br>
+    Argument <i>name</i> is filename specified in the error message instead of
+    script name.</dd>
   <dd><i>Examples:</i></dd>
 </dl>
 <pre># this calls <a href="corefilters/resize.htm" title="Resize">BicubicResize</a>(last, 352, 288)
@@ -348,6 +351,6 @@ SetPlanarLegacyAlignment(true)  # Set legacy memory alignment for prior statemen
 <hr>
 <p>Back to <a href="syntax_internal_functions.htm" title="Internal functions">Internal
 functions</a>.</p>
-<p><kbd>$Date: 2011/01/16 12:24:09 $</kbd></p>
+<p><kbd>$Date: 2012/04/15 14:13:14 $</kbd></p>
 </body>
 </html>

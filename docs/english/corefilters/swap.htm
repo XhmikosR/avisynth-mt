@@ -8,37 +8,42 @@
 <body >
 <h2>
 <a NAME="Swap"></a>SwapUV
-/ UToY / VToY / YToUV
+/ UToY / VToY / YToUV / UToY8 / VToY8
 </h2>
 <p><code>SwapUV </code>(<var>clip</var>)<br>
   <code>UToY </code>(<var>clip</var>)<br>
   <code>VToY </code>(<var>clip</var>)<br>
-  <var>YToUV </var>(<var>clipU, clipV [, clipY]</var>)
-<p>These four filters are available starting from <em>v2.5</em>.
-<p><code>SwapUV</code> swaps chroma channels (U and V) of a clip. Sometimes
-the colors are distorted (faces blue instead of red, etc) when loading
-a DivX or MJPEG clip in AviSynth v2.5, due to a bug in DivX (5.00-5.02). You can
-use this filter to correct it.
-<p><code>UToY</code> copies chroma U plane to Y plane, the resulting image
-is now half as big. All color (chroma) information is removed, so the image
-is now greyscale.
-<p>Likewise <code>VToY</code> copies chroma V plane to Y plane, the resulting
-image is now half as big. All color (chroma) information is removed, so
-the image is now greyscale.
+  <code>YToUV </code>(<var>clipU, clipV [, clipY]</var>)<br>
+  <code>UToY8 </code>(<var>clip</var>)<br>
+  <code>VToY8 </code>(<var>clip</var>)<p>These four filters are available
+starting from <em>v2.5</em>.
+The last two from <em>v2.60</em>.
+<p><code>SwapUV</code> swaps chroma channels (U and V) of a clip. Sometimes the
+colors are distorted (faces blue instead of red, etc) when loading a <a href="http://avisynth.org/mediawiki/DivX" title="DivX">DivX</a>
+or <a href="http://avisynth.org/mediawiki/MJPEG" title="MJPEG">MJPEG</a> clip in
+AviSynth v2.5, due to a bug in the decoders. You can use this filter to correct
+it.</p>
+<p><code>UToY</code> copies chroma U plane to Y plane. All color (chroma) information
+is removed, so the image is now greyscale. Depending on the YUV format, the image resolution can be changed.</p>
+<p><code>VToY</code> copies chroma V plane to Y plane. All color (chroma) information
+is removed, so the image is now greyscale. Depending on the YUV format, the image resolution can be changed.</p>
 <p><code>YToUV</code> puts the luma channels of the two clips as U and V channels.
-Image is now twice as big, and luma is 50% grey. Use <a href="merge.htm"><code>MergeLuma</code></a>,
-if you want to add luma values.
-<br>
-  Starting from <em>v2.51</em> there is an optional argument <i>clipY</i> which
-puts the luma channel of this clip as the Y channel.
-<p>Starting from <em>v2.53</em> they also work in YUY2.
-<p>&nbsp;
+Luma is now 50% grey. Starting from v2.51 there is an optional argument <var>clipY</var>
+which puts the luma channel of this clip as the Y channel. Depending on the YUV format,
+the image resolution can be changed.</p>
+<p>Starting from <em>v2.53</em> they also work in YUY2.</p>
+<p><code>UToY8 </code> (added in v2.60) is a shorthand for UToY.ConvertToY8, and
+<code>VToY8 </code> (added in v2.60) is a shorthand for VToY.ConvertToY8, but
+faster.</p>
+<p>Starting from v2.53, YUY2 is supported. Starting from v2.60, Y8, YV411, YV16,
+YV24 are supported.</p>
+<p><b>Example:</b>
 <pre># Blurs the U chroma channel&nbsp;
 video = Colorbars(512, 512).ConvertToYV12
 u_chroma = UToY(video).blur(1.5)
 YtoUV(u_chroma, video.VToY)
 MergeLuma(video)</pre>
-<p><kbd>$Date: 2006/12/15 19:29:25 $</kbd></p>
+<p><kbd>$Date: 2012/04/15 14:12:41 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

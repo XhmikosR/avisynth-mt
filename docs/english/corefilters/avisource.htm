@@ -8,13 +8,15 @@
 <body>
 <h2>&nbsp;&nbsp;&nbsp; <a NAME="AVISource"></a>AVISource / OpenDMLSource / AVIFileSource / WAVSource</h2>
 <p><code>AVISource </code>(<var>string filename [, ...], bool "audio" = true, string
-"pixel_type" = YV12, [string fourCC]</var>)<br>
-  <code>OpenDMLSource </code>(<var>string filename [, ...], bool &quot;audio&quot; = true, string &quot;pixel_type&quot; = YV12,
+"pixel_type" = &quot;FULL&quot;, [string fourCC]</var>)<br>
+  <code>OpenDMLSource </code>(<var>string filename [, ...], bool &quot;audio&quot; = true, string &quot;pixel_type&quot; =
+&quot;FULL&quot;,
 [string fourCC]</var>)<br>
-  <code>AVIFileSource </code>(<var>string filename [, ...], bool &quot;audio&quot; = true, string &quot;pixel_type&quot; = YV12,
+  <code>AVIFileSource </code>(<var>string filename [, ...], bool &quot;audio&quot; = true, string &quot;pixel_type&quot; =
+&quot;FULL&quot;,
 [string fourCC]</var>)<br>
   <code>WAVSource </code>(<var>string filename [, ...]</var>)
-<p><code>AVISource</code> takes as argument one or more file name in quotes,
+<p><code>AVISource</code>  takes as argument one or more file name in quotes,
 and reads in the file(s) using either the Video-for-Windows "AVIFile" interface,
 or AviSynth's built-in OpenDML code (taken from VirtualDub). This filter
 can read any file for which there's an AVIFile handler. This includes not
@@ -40,6 +42,17 @@ of the decompressor. Valid values are "YV12", "YV411", "YV16", "YV24", "YUY2", "
 no effect if the video is in an uncompressed format, because no decompressor will be used in that
 case. To put it in different words: if you don't specify something it will try to output the AVI as
 YV12, if that isn't possible it tries YV411 and if that isn't possible it tries YV16, etc ...
+<p>The <var>pixel_type</var> parameter allows you to choose the output format
+of the decompressor. Valid values are "YV24", "YV16", "YV12", "YV411", "YUY2",
+"RGB32", "RGB24", "Y8", "AUTO" and "FULL" (default value). If omitted or set
+to "FULL", AviSynth will use the first format supported by the decompressor
+(in the following order: YV24, YV16, YV12, YV411, YUY2, RGB32, RGB24 and Y8).
+If set to "AUTO", AviSynth will use the old ordering: YV12, YUY2, RGB32, RGB24
+and Y8. This parameter has no effect if the video is in an uncompressed
+format, because no decompressor will be used in that case. To put it in
+different words: if you don't specify something it will try to output the AVI
+as YV24, if that isn't possible it tries YV16 and if that isn't possible it
+tries YV12, etc ...
 <p>Sometimes the colors will be distorted when loading a DivX clip in AviSynth
 v2.5 (the chroma channels U and V are swapped), due to a bug in DivX (5.02
 and older). You can use <a href="swap.htm"><code>SwapUV</code></a> to correct it.
@@ -99,12 +112,16 @@ fewer than 50 AviSource() statements. See <cite><a href="http://forum.doom9.org/
 <table border="1">
   <tbody>
     <tr>
+      <td>v2.60</td>
+      <td>Added new color formats, &quot;AUTO&quot; and &quot;FULL&quot;.</td>
+    </tr>
+    <tr>
       <td>v2.55</td>
       <td>Added fourCC option.</td>
     </tr>
   </tbody>
 </table>
-<p><kbd>$Date: 2009/09/12 15:10:22 $</kbd></p>
+<p><kbd>$Date: 2012/05/03 07:32:20 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

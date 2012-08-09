@@ -3,7 +3,7 @@
 <head>
 <!--
 Not Automatically generated, changed!:
-$Id: syntax_internal_functions_numeric.htm,v 1.6 2012/02/08 08:31:23 ianb1957 Exp $ 
+$Id: syntax_internal_functions_numeric.htm,v 1.8 2012/04/09 08:19:32 ianb1957 Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Syntax - Numeric functions</title>
@@ -422,6 +422,9 @@ ContinuedDenominator(355, 113, limit=50) = 7 </pre>
   <dd><i>Examples:</i></dd>
 </dl>
 <pre>BitNOT(5) = -6 # since 5 = 101, and ~101 = 11111111111111111111111111111010</pre>
+<dl>
+  <dd>Note: 1111 1111 1111 1111 1111 1111 1111 1010 = (2^32-1)-2^0-2^2 = 2^32-(1+2^0+2^2) = (signed) -(1+2^0+2^2) = -6.</dd>
+</dl>
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">BitOr</span> <span>&nbsp;</span>
     | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">BitOr(int,
@@ -469,6 +472,10 @@ BitLShift(5, 2) = 20 (since 101 &lt;&lt; 2 = 10100)</pre>
 </dl>
 <pre>Shifts the bits of the number -42 one bit to the right, treating it as unsigned:
 BitRShiftL(-42, 1) = 2147483627 (since 11111111111111111111111111010110 &gt;&gt;&gt; 1 = 01111111111111111111111111101011)</pre>
+<dl>
+  <dd>Note: -42 = -(1+2^0+2^3+2^5) = (unsigned) 2^32-(1+2^0+2^3+2^5) = (2^32-1)-2^0-2^3-2^5 = 11111111111111111111111111010110.</dd>
+</dl>
+
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">BitRShiftA</span> <span>&nbsp;</span>
     | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">BitRShiftA(int, int)</span></li>
@@ -485,6 +492,6 @@ BitRShiftA(-42, 1) = -21 (since 11111111111111111111111111010110 &gt;&gt; 1 = 11
 <hr>
 <p>Back to <a href="syntax_internal_functions.htm" title="Internal functions">Internal
 functions</a>.</p>
-<p><kbd>$Date: 2012/02/08 08:31:23 $</kbd></p>
+<p><kbd>$Date: 2012/04/09 08:19:32 $</kbd></p>
 </body>
 </html>
