@@ -27,11 +27,12 @@ range.<p><var>show</var> can be "luma" (shows out of bounds luma in red/green),
 "luma_grey" (shows out of bounds luma and makes the remaining pixels greyscale),
 "chroma" (shows out of bounds chroma in yellow), "chroma_grey" (shows out of bounds
 chroma and makes the remaining pixels greyscale). The coloring is done as follows:
-<p>YUY2 (chroma shared between two horizontal pixels p1 and p2: Y1UY2V):
-<p>YV12 (chroma shared between 2x2 pixels Y11uY12v;/Y21uY22v):
-<table border="1" width="100%">
+<p>YUY2 (chroma shared between two horizontal pixels p1 and p2: Y1UY2V): j,k=1,2<br>
+YV24 (no chroma shared): j,k=1<br>
+YV12 (chroma shared between 2x2 pixels Y11UY12V; Y21UY22V): j,k=11,12,21,22</p>
+<table border="1" width="60%">
   <tr>
-    <th width="33%">j,k=1,2 or j,k=11,12,21,22</th>
+    <th width="33%">&nbsp;</th>
     <th width="33%">luma</th>
     <th width="33%">luma_grey</th>
   </tr>
@@ -100,12 +101,16 @@ chroma and makes the remaining pixels greyscale). The coloring is done as follow
 <table border="1">
   <tbody>
     <tr>
+      <td>v2.60</td>
+      <td>Added show for YV24.</td>
+    </tr>
+    <tr>
       <td>v2.56</td>
       <td>added show to show out of bounds luma/chroma</td>
     </tr>
   </tbody>
 </table>
-<p><kbd>$Date: 2005/06/01 17:42:26 $</kbd></p>
+<p><kbd>$Date: 2012/04/09 08:19:32 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

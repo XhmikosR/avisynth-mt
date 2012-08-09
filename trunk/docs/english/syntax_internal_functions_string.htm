@@ -3,7 +3,7 @@
 <head>
 <!--
 Not Automatically generated, changed!:
-$Id: syntax_internal_functions_string.htm,v 1.4 2012/02/08 08:42:27 ianb1957 Exp $ 
+$Id: syntax_internal_functions_string.htm,v 1.7 2012/04/15 14:13:14 wilbertd Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Syntax - String functions</title>
@@ -91,6 +91,19 @@ $Id: syntax_internal_functions_string.htm,v 1.4 2012/02/08 08:42:27 ianb1957 Exp
 </dl>
 <pre>Findstr(&quot;AviSynth&quot;, &quot;Syn&quot;) = 4</pre>
 <ul>
+  <li><span style="color: rgb(0, 0, 128); font-weight: bold;">FillStr</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">FillStr(int
+    [, string])</span>
+<dl>
+  <dd>Fills a string. When int&gt;1 it concatenates the string int times. String
+    is space by default.</dd>
+  <dd><i>Examples:</i></dd>
+</dl>
+  </li>
+</ul>
+<pre>FillStr(1, &quot;AviSynth&quot;) = &quot;AviSynth&quot;
+FillStr(2, &quot;AviSynth&quot;) = &quot;AviSynthAviSynth&quot;</pre>
+<ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">StrCmp</span> <span>&nbsp;</span>
     | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">StrCmp(string,
     string)</span></li>
@@ -99,8 +112,7 @@ $Id: syntax_internal_functions_string.htm,v 1.4 2012/02/08 08:42:27 ianb1957 Exp
   <dd>Compares two character strings. The comparison is case-sensitive. If the
     first string is less than the second string, the return value is negative.
     If it's greater, the return value is positive. If they are equal, the return
-    value is zero. (More precisely, it returns the difference of the first
-    different character of both strings. See <a href="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" class="external text" title="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" rel="nofollow">here</a>.)</dd>
+    value is zero. (The actual value seems to be host operating system dependent so it can't be relied upon.)</dd>
   <dd><i>Examples:</i></dd>
 </dl>
 <pre>StrCmp(&quot;AviSynth&quot;, &quot;AviSynth&quot;) = 0 # strings are equal.
@@ -114,8 +126,8 @@ StrCmp(&quot;AviSynth&quot;, &quot;Avisynth&quot;)&nbsp;!= 0 # strings are not e
   <dd>Compares two character strings. The comparison is not case-sensitive. If
     the first string is less than the second string, the return value is
     negative. If it's greater, the return value is positive. If they are equal,
-    the return value is zero. (More precisely, it returns the difference of the
-    first different character of both strings. See <a href="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" class="external text" title="http://winapi.freetechsecrets.com/win32/WIN32lstrcmp.htm" rel="nofollow">here</a>.)</dd>
+    the return value is zero. (The actual value seems to be host operating
+    system dependent so it can't be relied upon.)</dd>
   <dd><i>Examples:</i></dd>
 </dl>
 <pre>StrCmpi(&quot;AviSynth&quot;, &quot;AviSynth&quot;) = 0 # strings are equal.
@@ -134,7 +146,22 @@ StrCmpi(&quot;abcz&quot;, &quot;abcdefg&quot;)&nbsp;!= 0 # returns the differenc
   <dd><i>Examples:</i></dd>
 </dl>
 <pre>Chr(34) returns the quote character
-Chr(9)  returns the tab   character</pre>
+Chr(9) returns the tab  character</pre>
+<ul>
+  <li><span style="color: #000080; font-weight: bold">Ord</span> <span>&nbsp;</span>
+    | <span>&nbsp;</span> v2.60 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold">Ord(string)</span>
+    <dl>
+      <dd>Gives the ordinal number of the first character of a string.</dd>
+      <dd>Note that characters above the ASCII character set (ie above 127) are
+        returned as negative numbers.</dd>
+      <dd><i>Examples:</i></dd>
+    </dl>
+  </li>
+</ul>
+<pre>Ord(&quot;a&quot;) = 97
+Ord(&quot;AviSynth&quot;) = Ord(&quot;A&quot;) = 65
+Ord(&quot;§&quot;) = -89</pre>
+&nbsp;
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">Time</span> <span>&nbsp;</span>
     | <span>&nbsp;</span> v2.51 <span>&nbsp;</span> | <span>&nbsp;</span> <span style="color: purple; font-weight: bold;">Time(string)</span></li>
@@ -285,6 +312,6 @@ Chr(9)  returns the tab   character</pre>
 <hr>
 <p>Back to <a href="syntax_internal_functions.htm" title="Internal functions">Internal
 functions</a>.</p>
-<p><kbd>$Date: 2012/02/08 08:42:27 $</kbd></p>
+<p><kbd>$Date: 2012/04/15 14:13:14 $</kbd></p>
 </body>
 </html>

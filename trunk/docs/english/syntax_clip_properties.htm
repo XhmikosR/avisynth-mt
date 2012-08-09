@@ -3,7 +3,7 @@
 <head>
 <!--
 Not Automatically generated, changed!:
-$Id: syntax_clip_properties.htm,v 1.5 2010/01/06 16:00:57 wilbertd Exp $ 
+$Id: syntax_clip_properties.htm,v 1.6 2012/04/15 14:13:14 wilbertd Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Syntax - Clip properties</title>
@@ -81,19 +81,20 @@ Syntax</a> for more), except that they cannot be l-values in C-terminology.</p>
 </dl>
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">AudioLengthLo</span>
-    (clip) (v2.60)</li>
+    (clip [, int]) (v2.60)</li>
 </ul>
 <dl>
-  <dd>Returns the number of samples of the audio of the clip modulo 1,000,000,000
-  (type: int).</dd>
+  <dd>Returns the number of samples of the audio of the clip modulo int. int is
+    1,000,000,000 by default (type: int).</dd>
 </dl>
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">AudioLengthHi</span>
-    (clip) (v2.60)</li>
+    (clip [, int]) (v2.60)</li>
 </ul>
 <dl>
-  <dd>Returns the number of samples of the audio of the clip divided by 1,000,000,000
-  (type: int).</dd>
+  <dd>Returns the number of samples of the audio of the clip divided by int
+    (rounded down to nearest integer). int is 1,000,000,000 by default (type:
+    int).</dd>
 </dl>
 <ul>
   <li><span style="color: rgb(0, 0, 128); font-weight: bold;">AudioLengthF</span>
@@ -260,6 +261,6 @@ Syntax</a> for more), except that they cannot be l-values in C-terminology.</p>
 </dl>
 <hr>
 <p>Back to <a href="syntax.htm" title="AviSynth Syntax">AviSynth Syntax</a>.</p>
-<p><kbd>$Date: 2010/01/06 16:00:57 $</kbd></p>
+<p><kbd>$Date: 2012/04/15 14:13:14 $</kbd></p>
 </body>
 </html>

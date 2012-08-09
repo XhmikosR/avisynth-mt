@@ -3,7 +3,7 @@
 <head>
 <!--
 Not automatically generated, has been changed:
-$Id: corefilters.htm,v 1.28 2011/01/16 12:24:09 wilbertd Exp $ 
+$Id: corefilters.htm,v 1.29 2012/04/15 14:13:14 wilbertd Exp $ 
 -->
    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
    <meta name="Keywords" content="Avisynth 2 Filter Reference">
@@ -151,7 +151,7 @@ between the two clips can be specified.</td>
 <td>Shows the selected channel of an (A)RGB clip.</td>
 </tr>
 <tr>
-<td><a href="corefilters/swap.htm">SwapUV / UToY / VToY / YToUV</a></td>
+<td><a href="corefilters/swap.htm">SwapUV / UToY / UToY8 / VToY / VToY8 / YToUV</a></td>
 
 <td>Swaps/copies chroma channels of a clip.</td>
 </tr>
@@ -165,11 +165,6 @@ set according to the difference between the corresponding pixels</td>
 <td WIDTH="30%"><a href="corefilters/tweak.htm">Tweak</a></td>
 
 <td WIDTH="70%">Adjust the hue, saturation, brightness, and contrast.</td>
-</tr>
-<tr>
-<td WIDTH="30%"><a href="corefilters/swap.htm">UToY8 / VToY8</a></td>
-
-<td WIDTH="70%">Shorthand for UToY.ConvertToY8 / VToY.ConvertToY8.</td>
 </tr>
 </table>
 
@@ -414,8 +409,7 @@ and Pulldown.</td>
 <tr>
 <td WIDTH="30%"><a href="corefilters/trim.htm">Trim</a></td>
 
-<td WIDTH="70%">Trim trims a video clip so that it includes only the frames
-first-frame through last-frame.</td>
+<td WIDTH="70%">Trims a video clip so that it includes only the frames first-frame through last-frame.</td>
 </tr>
 </table>
 
@@ -479,6 +473,12 @@ frames of the source video.</td>
   </tr>
 
   <tr>
+    <td WIDTH="30%"><a href="corefilters/separatefields.htm">SeparateColumns / SeparateRows</a></td>
+    <td WIDTH="70%">Takes a clip and separates the columns or rows of each frame
+      into new frames.</td>
+  </tr>
+
+  <tr>
     <td WIDTH="30%"><a href="corefilters/separatefields.htm">SeparateFields</a></td>
     <td WIDTH="70%">SeparateFields takes a frame-based clip and splits each
 frame into its component top and bottom fields.</td>
@@ -530,6 +530,13 @@ converted to 16 bit, since float cannot be passed as valid AVI data.&nbsp;</p>
 and the audio stream from the second argument and combines them. AudioDubEx is
   similar, but it doesn't throw an exception if both clips don't have a video or
   audio stream.</td>
+</tr>
+
+<tr>
+<td WIDTH="30%"><a href="corefilters/trim.htm">AudioTrim</a></td>
+
+<td WIDTH="70%">Trims an audio clip so that it includes only the start_time through
+  end_time.</td>
 </tr>
 
 <tr>
@@ -652,10 +659,11 @@ by a normal AviSynth script.</p>
 
   <tr>
     <td WIDTH="30%"><a href="corefilters/conditionalfilter.htm">ConditionalFilter / FrameEvaluate
-/ ScriptClip</a> </td>
+/ ScriptClip / ConditionalSelect</a> </td>
     <td WIDTH="70%">ConditionalFilter returns source1 if some condition is met, otherwise it
       returns source2. ScriptClip/FrameEvaluate returns the clip which is
-      returned by the function evaluated on every frame.</td>
+      returned by the function evaluated on every frame. ConditionalSelect
+      returns one frame from several sources based on an integer evaluator.</td>
   </tr>
   <tr>
     <td WIDTH="30%"> <a href="corefilters/conditionalreader.htm">ConditionalReader</a></td>
@@ -754,6 +762,6 @@ version and copyright statement</td>
 </tr>
 </table>
 
-<br><kbd>$Date: 2011/01/16 12:24:09 $</kbd>
+<br><kbd>$Date: 2012/04/15 14:13:14 $</kbd>
 </body>
 </html>

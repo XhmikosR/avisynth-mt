@@ -3,7 +3,7 @@
 <head>
 <!--
 Not automatically generated, has been changed:
-$Id: quick_ref.htm,v 1.56 2011/12/04 15:27:59 wilbertd Exp $ 
+$Id: quick_ref.htm,v 1.60 2012/04/09 08:19:32 ianb1957 Exp $ 
 -->
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta name="Keywords" content="Avisynth filter reference">
@@ -54,6 +54,13 @@ $Id: quick_ref.htm,v 1.56 2011/12/04 15:27:59 wilbertd Exp $
 <ul>
   <li> <code>AddBorders</code> (<var>clip, int left, int top, int right, int bottom, 
     int &quot;color&quot;</var>)</li>
+</ul>
+<a href="corefilters/trim.htm">AudioTrim</a>
+<ul>
+  <li> <code>AudioTrim </code>(<var>clip, float start_time, float end_time</var>) <em>[v2.60]</em></li>
+  <li> <code>AudioTrim </code>(<var>clip, float start_time, float -duration</var>) <em>[v2.60]</em></li>
+  <li> <code>AudioTrim </code>(<var>clip, float start_time, float "end"</var>) <em>[v2.60]</em></li>
+  <li> <code>AudioTrim </code>(<var>clip, float start_time, float "length"</var>) <em>[v2.60]</em></li>
 </ul>
 <a href="corefilters/amplify.htm">Amplify / AmplifydB</a> <em>[16 bit, float]</em> 
 <ul>
@@ -188,12 +195,14 @@ $Id: quick_ref.htm,v 1.56 2011/12/04 15:27:59 wilbertd Exp $
   <li> <code>Compare </code>(<var>clip_filtered, clip_original, string "channels", string 
     "logfile", bool "show_graph"</var>)</li>
 </ul>
-<a href="corefilters/conditionalfilter.htm">ConditionalFilter / FrameEvaluate 
-/ ScriptClip</a>  / <a href="corefilters/conditionalreader.htm">ConditionalReader</a> 
+<a href="corefilters/conditionalfilter.htm">ConditionalFilter / ConditionalSelect /
+   FrameEvaluate / ScriptClip</a>  / <a href="corefilters/conditionalreader.htm">ConditionalReader</a> 
 <em>[yv12] [yuy2] </em> 
 <ul>
   <li> <code>ConditionalFilter </code>(<var>clip testclip, clip source1, clip source2, 
-    string filter, string operator, string value, bool &quot;show&quot;</var>) <em>[v2.52]</em></li>
+    string expression1, string operator, string expression2, bool &quot;show&quot;</var>) <em>[v2.52]</em></li>
+  <li> <code>ConditionalSelect </code>(<var>clip testclip, string expression, clip source0,
+    clip source1, clip source2, ..., bool &quot;show&quot;</var>) <em>[v2.60]</em></li>
   <li> <code>FrameEvaluate </code>(<var>clip clip, script function, bool "after_frame"</var>) <em>[v2.52]</em></li>
   <li> <code>ScriptClip </code>(<var>clip clip, string function, bool "show", bool "after_frame"</var>) <em>[v2.52]</em></li>
   <li> <code>ConditionalReader </code>(<var>clip clip, string filename, string 
@@ -607,6 +616,10 @@ bit, float] </em>
 [yv12] [yv411] [y8] [yuy2] [rgb32] [rgb24]</em>
 <ul>
   <li> <code>SeparateFields </code>(<var>clip</var>)</li>
+  <li> <code>SeparateColumns </code>(<var>clip, &quot;interval&quot;</var>) 
+    <em>[v2.60]</em></li>
+  <li> <code>SeparateRows </code>(<var>clip, &quot;interval&quot;</var>) 
+    <em>[v2.60]</em></li>
 </ul>
 <a href="corefilters/showalpha.htm">ShowAlpha</a> <em>[rgb32] </em>
 <ul>
@@ -742,10 +755,12 @@ SoundOut</a> <em>[all] [v2.60] </em>
     int &quot;samplerate&quot;, int &quot;channels&quot;, string &quot;type&quot;,
     float &quot;level&quot;</var>) <em>[v2.54]</em></li>
 </ul>
-<p align="left"> <a href="corefilters/trim.htm">Trim</a> <em>[yv24] [yv16]
-[yv12] [yv411] [y8] [yuy2] [rgb32] [rgb24]</em>
+<a href="corefilters/trim.htm">Trim</a> <em>[yv24] [yv16] [yv12] [yv411] [y8] [yuy2] [rgb32] [rgb24]</em>
 <ul>
-  <li> <code>Trim </code>(<var>clip, int first_frame, int last_frame [, bool pad_audio]</var>) <em>[v2.56]</em></li>
+  <li> <code>Trim </code>(<var>clip, int first_frame, int last_frame [, bool "pad"]</var>) <em>[v2.56]</em></li>
+  <li> <code>Trim </code>(<var>clip, int first_frame, int -num_frames [, bool "pad"]</var>) <em>[v2.56]</em></li>
+  <li> <code>Trim </code>(<var>clip, int start_time, int "end" [, bool "pad"]</var>) <em>[v2.60]</em></li>
+  <li> <code>Trim </code>(<var>clip, int start_time, int "length" [, bool "pad"]</var>) <em>[v2.60]</em></li>
 </ul>
 <a href="corefilters/turn.htm">TurnLeft / TurnRight / Turn180</a> <em>[yv24]
 [yv16] [yv12] [yv411] [y8] [yuy2] [rgb32] [rgb24]</em>
@@ -818,6 +833,6 @@ SoundOut</a> <em>[all] [v2.60] </em>
 <a href="#V">[V]</a>
 <a href="#W">[W]</a>
  [X] [Y] [Z]
-<p><kbd>$Date: 2011/12/04 15:27:59 $</kbd></p>
+<p><kbd>$Date: 2012/04/09 08:19:32 $</kbd></p>
 </body>
 </html>

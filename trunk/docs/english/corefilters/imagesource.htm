@@ -6,7 +6,7 @@
    <title>ImageReader / ImageSource Filter</title>
 <!--
 Automatically generated, don't change:
-$Id: imagesource.htm,v 1.15 2011/12/04 15:28:44 wilbertd Exp $
+$Id: imagesource.htm,v 1.16 2012/04/15 14:12:41 wilbertd Exp $
 -->
 </head>
 <body>
@@ -51,15 +51,8 @@ $Id: imagesource.htm,v 1.15 2011/12/04 15:28:44 wilbertd Exp $
   you have BMP files you don't want read by <tt><code>ImageReader</code></tt>'s
   internal parser.
 
-<p><u>NOTE</u> : DevIL version 1.6.6 as shipped with Avisynth does not correctly
-  support DIB/BMP type files that use a pallette, these include 8 bit RGB,
-  Monochrome, RLE8 and RLE4.  Because the failure is usually catastrophic,
-  from revision 2.56, internal BMP processing does not automatically fail
-  over to DevIL processing. Forcing DevIL processing for these file types
-  is currently not recommended.
-
-<p><var>info</var> = false: when true, the source filename text is overlayed on
-  each video frame (added in <em>v2.55</em>).
+<p><var>info</var> = false: when true, the source filename and DevIL version is
+written to each video frame (added in <em>v2.55</em>).
 
 <p><var>pixel_type</var> = &quot;rgb24&quot;: Allow the output pixel format to be specified,
   both rgb24 and rgb32 are supported. The alpha channel is loaded only for rgb32
@@ -81,7 +74,9 @@ animations (gif, ppm, tiff or psd). If there is a delay between the first and
 second image in the animation, the framerate is set accordingly. If this delay
 is zero, the framerate is set to 24 fps by default (and can be adjusted by
 setting the <i>fps</i> parameter). Note that <i>pixel_type</i> is set to RGB32
-by default.</p>
+by default. If the images in the animation have unequal dimensions, then the
+  dimension of the first image is taken and the remaining images are padded with
+  black pixels below and or to the right.</p>
 
 <p>1.7.8 DevIL.dll can be downloaded <a href="https://sourceforge.net/projects/openil/files/DevIL%20Win32/1.7.8/DevIL-EndUser-x86-1.7.8.zip" class="external text" title="https://sourceforge.net/projects/openil/files/DevIL%20Win32/1.7.8/DevIL-EndUser-x86-1.7.8.zip" rel="nofollow">here</a>.
 Just put the DevIL.dll in your system folder (it will overwrite the 1.6.6
@@ -156,7 +151,7 @@ ImageSourceAnim(&quot;F:\TestPics\8bit_animated.gif&quot;)</pre>
     </tr>
   </tbody>
 </table>
-<p><kbd>$Date: 2011/12/04 15:28:44 $</kbd></p>
+<p><kbd>$Date: 2012/04/15 14:12:41 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back"
 onClick="history.go(-1)"></form>
 </body>

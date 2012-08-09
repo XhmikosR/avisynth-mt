@@ -85,8 +85,8 @@ return Layer(clip1, clip2, &quot;fast&quot;)</pre>
 <p><code>Mask </code>(<var>clip, mask_clip</var>)</p>
 <p>Applies a defined alpha-mask to <var>clip</var>, for use with <code>Layer</code>, by 
   converting <var>mask_clip</var> to greyscale and using that for the mask (the alpha-channel) 
-  of RGB32. In this channel &quot;black&quot; means completely transparent, white 
-  means completely opaque).&nbsp;
+  of RGB32. In this channel &quot;black&quot; means completely transparent and white 
+  means completely opaque.&nbsp;
 </p>
 <p>For those of you who familiar with Photoshop masks, the concept is the same.
 In fact you can create a black and white photo in Photoshop, load it in your
@@ -123,7 +123,7 @@ the source), this filter is the faster way to apply an all white mask:
 <p>For AviSynth versions older than v2.58, there were no separate tolerance
   levels for blue, green and red. There was only one tolerance level called
   <var>tolerance</var> and was used for blue, green and red simultaneously.</p>
-<p><kbd>$Date: 2010/02/27 14:45:27 $</kbd></p>
+<p><kbd>$Date: 2012/03/18 15:25:39 $</kbd></p>
 <FORM>
   <INPUT TYPE="Button" VALUE="Back"
 onClick="history.go(-1)">

@@ -13,7 +13,8 @@
 bool &quot;audio&quot;, bool &quot;video&quot;, bool &quot;convertfps&quot;, bool
 &quot;seekzero&quot;, int &quot;timeout&quot;, string &quot;pixel_type&quot;, int
 &quot;framecount&quot;, string &quot;logfile&quot;, int &quot;logmask&quot;</var>)
-<p><code>DirectShowSource</code> reads the file <i><var>filename</var></i> using DirectShow,
+<p><code>DirectShowSource</code> reads the file <i><var>filename</var></i> 
+using DirectShow,
 the same multimedia playback system which Windows Media Player uses. It can
 read most formats which Media Player can play, including MPEG, MP3, and
 QuickTime, as well as AVI files that <tt>AVISource</tt> doesn't support
@@ -81,7 +82,8 @@ To set time to wait when DirectShow refuses to render.  Positive values cause
 the return of blank frames for video and silence for audio streams. Negative
 values cause a runtime Avisynth exception to be thrown.</p>
 <p><var>pixel_type</var> (in <em>v2.56</em>): The pixel type of the resulting
-clip, it can be &quot;YV12&quot;, &quot;YUY2&quot;, &quot;ARGB&quot;,
+clip, it can be &quot;YV12&quot;, &quot;YUY2&quot;, &quot;Y411&quot;,
+&quot;Y41P&quot;, &quot;AYUV&quot;, &quot;ARGB&quot;,
 &quot;RGB32&quot;, &quot;RGB24&quot;, &quot;YUV&quot;, &quot;RGB&quot; or
 &quot;AUTO&quot;. By default, upstream DirectShow filters are free to bid all of
 their supported media types in the order of their choice. A few DirectShow
@@ -92,7 +94,7 @@ actually decode to your chosen format. The M$ format converter is just adequate.
 The &quot;YUV&quot; and &quot;RGB&quot; pseudo-types restrict the negotiation to
 all supported YUV or RGB formats respectively. The &quot;AUTO&quot; pseudo-type
 permits the negotiation to use all relevant formats in the order of preference
-YV12, YUY2, ARGB, RGB32, RGB24. Many DirectShow filters get this wrong, which is
+YV12, YUY2, Y411, Y41P, AYUV, ARGB, RGB32, RGB24. Many DirectShow filters get this wrong, which is
 why it is not enabled by default. The option exists so you have enough control
 to encourage the maximum range of filters to serve your media. (See <a href="http://forum.doom9.org/showthread.php?t=143321" class="external text" title="http://forum.doom9.org/showthread.php?t=143321" rel="nofollow">discussion</a>.)</p>
 <p><var>framecount</var> (in <em>v2.57</em>): This is sometimes needed to specify the
@@ -237,8 +239,25 @@ AudioDub(v,a)</pre>
 Finally, open the script in vdub and convert the audio stream to MP3 (of
 course you can also demux the downmixed WAV stream if needed).
 <p>For some reason, I can't get this to work with DTS streams :(</p>
+<h3><span class="mw-headline">Windows7 users</span></h3>
+<p>Windows 7 forces its own DirectShow filters for decoding several audio and
+video formats. Changing their merits or physically removing those filters
+doesn't help. clsid made the tool &quot;<a href="http://forum.doom9.org/showthread.php?t=146910" class="external text" title="http://forum.doom9.org/showthread.php?t=146910" rel="nofollow">Win7DSFilterTweaker</a>&quot;
+to change the preferred filters. However new decoders need to be added each time
+so it's not the perfect solution.</p>
 <p><b>Changes</b></p>
 <table border="1" width="40%">
+  <tr>
+    <td rowspan=1 width="5%">v2.60</td>
+    <td width="50%">Added pixel_types "AYUV", "Y41P", "Y411".</td>
+  </tr>
+  <tr>
+    <td rowspan=2 width="5%">v2.57</td>
+    <td width="50%">framecount overrides the length of the streams.</td>
+  </tr>
+  <tr>
+    <td width="50%">logfile and logmask specify debug logging.</td>
+  </tr>
   <tr>
     <td rowspan=4 width="5%">v2.56</td>
     <td width="50%">convertfps turns vfr into constant cfr by adding frames</td>
@@ -252,15 +271,8 @@ course you can also demux the downmixed WAV stream if needed).
   <tr>
     <td width="50%">pixel_type specifies/restricts output video pixel format</td>
   </tr>
-  <tr>
-    <td rowspan=2 width="5%">v2.57</td>
-    <td width="50%">framecount overrides the length of the streams.</td>
-  </tr>
-  <tr>
-    <td width="50%">logfile and logmask specify debug logging.</td>
-  </tr>
 </table>
-<p><kbd>$Date: 2012/01/08 15:34:35 $</kbd></p>
+<p><kbd>$Date: 2012/04/15 14:12:41 $</kbd></p>
 <form><input TYPE="Button" VALUE="Back" onClick="history.go(-1)"></form>
 </body>
 </html>
