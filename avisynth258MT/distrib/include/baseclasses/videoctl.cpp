@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------
 
 
-#include <streams.h>
+#include "streams.h"
 #include "ddmm.h"
 
 // Load a string from the resource file string table. The buffer must be at
@@ -603,7 +603,6 @@ HRESULT CLoadDirectDraw::LoadDirectDraw(__in LPSTR szDevice)
     PDRAWCREATE pDrawCreate;
     PDRAWENUM pDrawEnum;
     LPDIRECTDRAWENUMERATEEXA pDrawEnumEx;
-    HRESULT hr = NOERROR;
 
     NOTE("Entering DoLoadDirectDraw");
 
@@ -620,11 +619,11 @@ HRESULT CLoadDirectDraw::LoadDirectDraw(__in LPSTR szDevice)
     if(!m_hDirectDraw)
     {
         UINT ErrorMode = SetErrorMode(SEM_NOOPENFILEERRORBOX);
-        m_hDirectDraw = LoadLibrary(TEXT("DDRAW.DLL"));
+        m_hDirectDraw = LoadLibrary(TEXT("ddraw.dll"));
         SetErrorMode(ErrorMode);
 
         if (m_hDirectDraw == NULL) {
-            DbgLog((LOG_ERROR,1,TEXT("Can't load DDRAW.DLL")));
+            DbgLog((LOG_ERROR,1,TEXT("Can't load ddraw.dll")));
             NOTE("No library");
             return E_NOINTERFACE;
         }

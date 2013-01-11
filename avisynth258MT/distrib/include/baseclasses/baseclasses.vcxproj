@@ -22,6 +22,7 @@
     <ProjectGuid>{E8A3F6FA-AE1C-4C8E-A0B6-9C8480324EAA}</ProjectGuid>
     <RootNamespace>BaseClasses</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <ProjectName>BaseClasses</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -71,28 +72,23 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>streams.h</PrecompiledHeaderFile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>strmiids.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Midl>
-      <TargetEnvironment>X64</TargetEnvironment>
-    </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>streams.h</PrecompiledHeaderFile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -100,14 +96,14 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>strmiids.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>streams.h</PrecompiledHeaderFile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
@@ -116,64 +112,29 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>strmiids.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Midl>
-      <TargetEnvironment>X64</TargetEnvironment>
-    </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>streams.h</PrecompiledHeaderFile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Lib>
-      <AdditionalDependencies>strmiids.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>strmiids.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="amextra.cpp" />
-    <ClCompile Include="amfilter.cpp" />
-    <ClCompile Include="amvideo.cpp" />
-    <ClCompile Include="arithutil.cpp" />
-    <ClCompile Include="combase.cpp" />
-    <ClCompile Include="cprop.cpp" />
-    <ClCompile Include="ctlutil.cpp" />
-    <ClCompile Include="ddmm.cpp" />
-    <ClCompile Include="dllentry.cpp" />
-    <ClCompile Include="dllsetup.cpp" />
-    <ClCompile Include="mtype.cpp" />
-    <ClCompile Include="outputq.cpp" />
-    <ClCompile Include="perflog.cpp" />
-    <ClCompile Include="pstream.cpp" />
-    <ClCompile Include="pullpin.cpp" />
-    <ClCompile Include="refclock.cpp" />
-    <ClCompile Include="renbase.cpp" />
-    <ClCompile Include="schedule.cpp" />
-    <ClCompile Include="seekpt.cpp" />
-    <ClCompile Include="source.cpp" />
-    <ClCompile Include="strmctl.cpp" />
-    <ClCompile Include="sysclock.cpp" />
-    <ClCompile Include="transfrm.cpp" />
-    <ClCompile Include="transip.cpp" />
-    <ClCompile Include="videoctl.cpp" />
-    <ClCompile Include="vtrans.cpp" />
-    <ClCompile Include="winctrl.cpp" />
-    <ClCompile Include="winutil.cpp" />
-    <ClCompile Include="wxdebug.cpp" />
-    <ClCompile Include="wxlist.cpp" />
-    <ClCompile Include="wxutil.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="amextra.h" />
     <ClInclude Include="amfilter.h" />
     <ClInclude Include="cache.h" />
+    <ClInclude Include="checkbmi.h" />
     <ClInclude Include="combase.h" />
     <ClInclude Include="cprop.h" />
     <ClInclude Include="ctlutil.h" />
@@ -207,6 +168,42 @@
     <ClInclude Include="wxdebug.h" />
     <ClInclude Include="wxlist.h" />
     <ClInclude Include="wxutil.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="amextra.cpp" />
+    <ClCompile Include="amfilter.cpp" />
+    <ClCompile Include="amvideo.cpp" />
+    <ClCompile Include="arithutil.cpp" />
+    <ClCompile Include="combase.cpp" />
+    <ClCompile Include="cprop.cpp" />
+    <ClCompile Include="ctlutil.cpp" />
+    <ClCompile Include="ddmm.cpp" />
+    <ClCompile Include="dllentry.cpp" />
+    <ClCompile Include="dllsetup.cpp" />
+    <ClCompile Include="mtype.cpp" />
+    <ClCompile Include="outputq.cpp" />
+    <ClCompile Include="perflog.cpp" />
+    <ClCompile Include="pstream.cpp" />
+    <ClCompile Include="pullpin.cpp" />
+    <ClCompile Include="refclock.cpp" />
+    <ClCompile Include="renbase.cpp" />
+    <ClCompile Include="schedule.cpp" />
+    <ClCompile Include="seekpt.cpp" />
+    <ClCompile Include="source.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="strmctl.cpp" />
+    <ClCompile Include="sysclock.cpp" />
+    <ClCompile Include="transfrm.cpp" />
+    <ClCompile Include="transip.cpp" />
+    <ClCompile Include="videoctl.cpp" />
+    <ClCompile Include="vtrans.cpp" />
+    <ClCompile Include="winctrl.cpp" />
+    <ClCompile Include="winutil.cpp" />
+    <ClCompile Include="wxdebug.cpp" />
+    <ClCompile Include="wxlist.cpp" />
+    <ClCompile Include="wxutil.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
