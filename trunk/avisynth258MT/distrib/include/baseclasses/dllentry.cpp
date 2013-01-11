@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 
-#include <streams.h>
-#include <initguid.h>
+#include "streams.h"
+#include <InitGuid.h>
 
-#ifdef DEBUG
+#ifdef _DEBUG
 #ifdef UNICODE
 #ifndef _UNICODE
 #define _UNICODE
@@ -259,8 +259,6 @@ DllCanUnloadNow()
 
 
 // --- standard WIN32 entrypoints --------------------------------------
-
-
 extern "C" void __cdecl __security_init_cookie(void);
 extern "C" BOOL WINAPI _DllEntryPoint(HINSTANCE, ULONG, __inout_opt LPVOID);
 #pragma comment(linker, "/merge:.CRT=.rdata")
@@ -292,7 +290,7 @@ _DllEntryPoint(
     __inout_opt LPVOID pv
     )
 {
-#ifdef DEBUG
+#ifdef _DEBUG
     extern bool g_fDbgInDllEntryPoint;
     g_fDbgInDllEntryPoint = true;
 #endif
@@ -305,7 +303,7 @@ _DllEntryPoint(
         DbgInitialise(hInstance);
 
     	{
-    	    // The platform identifier is used to work out whether
+			// The platform identifier is used to work out whether
     	    // full unicode support is available or not.  Hence the
     	    // default will be the lowest common denominator - i.e. N/A
                 g_amPlatform = VER_PLATFORM_WIN32_WINDOWS; // win95 assumed in case GetVersionEx fails
@@ -325,16 +323,16 @@ _DllEntryPoint(
     case DLL_PROCESS_DETACH:
         DllInitClasses(FALSE);
 
-#ifdef DEBUG
+#ifdef _DEBUG
         if (CBaseObject::ObjectsActive()) {
             DbgSetModuleLevel(LOG_MEMORY, 2);
             TCHAR szInfo[512];
             extern TCHAR m_ModuleName[];     // Cut down module name
 
-            TCHAR FullName[_MAX_PATH];      // Load the full path and module name
+            TCHAR FullName[MAX_PATH];      // Load the full path and module name
             TCHAR *pName;                   // Searches from the end for a backslash
 
-            GetModuleFileName(NULL,FullName,_MAX_PATH);
+            GetModuleFileName(NULL,FullName,MAX_PATH);
             pName = _tcsrchr(FullName,'\\');
             if (pName == NULL) {
                 pName = FullName;
@@ -358,7 +356,7 @@ _DllEntryPoint(
         break;
     }
 
-#ifdef DEBUG
+#ifdef _DEBUG
     g_fDbgInDllEntryPoint = false;
 #endif
     return TRUE;
