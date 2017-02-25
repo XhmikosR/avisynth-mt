@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectShowSource", "plugins\DirectShowSource\DirectShowSource.vcxproj", "{867A74A0-8D2C-44C5-8BAB-616EA4EBDB21}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoftWire", "..\distrib\include\SoftWire\SoftWire.vcxproj", "{FB1526EC-7A90-4A2E-B93B-3A080BDDD739}"

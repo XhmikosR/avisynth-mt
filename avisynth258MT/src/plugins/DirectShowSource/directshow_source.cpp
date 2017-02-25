@@ -36,7 +36,7 @@
 #include "directshow_source.h"
 #include <streams.h>
 
-#define DSS_VERSION "2.5.8"
+#define DSS_VERSION "2.5.8 build:" __DATE__ " [" __TIME__ "]\n"
 
 /************************************
  *          Logging Utility         *
@@ -108,7 +108,7 @@ LOG::LOG(const char* fn, int _mask, IScriptEnvironment* env) : mask(_mask), coun
   if (!file)
 	env->ThrowError("DirectShowSource: Not able to open log file, '%s' for appending.", fn);
 
-  fprintf(file, "%s fff 0x00000000 DirectShowSource " DSS_VERSION " build:"__DATE__" ["__TIME__"]\n", Tick());
+  fprintf(file, "%s fff 0x00000000 DirectShowSource " DSS_VERSION, Tick());
 }
 
 LOG::~LOG() {
